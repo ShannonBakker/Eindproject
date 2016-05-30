@@ -11,8 +11,16 @@ Het CBS heeft veel data over woon -werkverkeer beschikbaar. Het kost een gebruik
 	Daarnaast kunnen waarschijnlijk ook nieuwswaardige trends uit de data geworden gehaald. Zeker wanneer men data over de tijd kan vergelijken. Visualisaties zijn enorm handig om deze trends te ontdekken en te illustreren. 
 
 ######Features van de visualisatie 
-Er worden meerdere visualisaties gemaakt. De belangrijkste visualisatie die bovenaan de pagina komt is een linked views visualisatie van twee kaarten. Één kaart gaat over de mensen die van een gemeente reizen naar een andere. De andere kaart gaat over de mensen die naar gemeentes reizen vanuit een gemeente. Als je op een plaats in één van de kaarten klikt licht in beide kaarten deze plaats op en de gemeentes waar mensen vandaan komen of naartoe gaan. Daarnaast komt er ook een zoekvakje waarmee je plaatsen in Nederland kan zoeken en als je een plaats hebt gevonden licht deze weer op.  Ook komt er een tijdsbalkje waarmee je kan kiezen uit welk jaar je data wil zien. 
-	Onder deze grafieken komen deelgrafieken die een ‘nieuwsverhaal’ vertellen. Zoals de ontwikkeling van het aantal mensen dat naar Amsterdam reist. Of de gemeente vanuit waar mensen het verst moeten reizen. 
+Er worden meerdere visualisaties gemaakt. De belangrijkste visualisatie die bovenaan de pagina komt is een linked views visualisatie van twee kaarten. Één kaart gaat over de mensen die van een gemeente reizen naar een andere. De andere kaart gaat over de mensen die naar gemeentes reizen vanuit een gemeente. Als je op een plaats in één van de kaarten klikt licht in beide kaarten deze plaats op en de gemeentes waar mensen vandaan komen of naartoe gaan. Daarnaast komt er ook een zoekvakje waarmee je plaatsen in Nederland kan zoeken en als je een plaats hebt gevonden licht deze weer op.  Ook komt er een tijdsbalkje waarmee je kan kiezen uit welk jaar je data wilt zien. Daarnaast verschijnt er wanneer je  een gemeente selecteert één lijngrafiek met de ontwikkeling over tijd in het aantal mensen dat naar een stad gaat en het aantal mensen dat uit de stad vertrekt. 
+Onder deze grafieken komen deelgrafieken die een verhaal vertellen. Dit is enigzins afhankelijk van de data, maar de onderdelen die ik nu in mijn hoofd heb zijn. 
+	
+	Twee kaarten naast elkaar van één van de grote steden, waarbij je in de één de situatie voor de crisis ziet en de 		andere de 	situatie in 2014. Dit is een ingezoomde en specifieke versie van de grote kaart met een dropdown 		menu met de grote steden.  
+	
+	Een lijngrafiek waarbij je het aantal mensen ziet dat naar een stad reist en de gemiddelde huizenprijs over de tijd.
+	
+	Een kaart dat is ingekleurd op basis van het aantal mensen dat werken in hun woonplaats
+	
+	Een barchart met de gemeenten waar de inwoners het verst moeten reizen voor hun werk. 
 
 Dit zijn de belangrijkste onderdelen. Er kan nog heel veel data worden toegevoegd, zoals de gemiddelde afstand die mensen uit een gemeente afleggen en de gemiddelde huizenprijs per gemeente, wat misschien verband houdt met het aantal mensen dat naar een plaats reist voor werk. 
 
