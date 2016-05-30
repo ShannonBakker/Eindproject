@@ -12,7 +12,7 @@ Het CBS heeft veel data over woon -werkverkeer beschikbaar. Het kost een gebruik
 
 ######Features van de visualisatie 
 Er worden meerdere visualisaties gemaakt. De belangrijkste visualisatie die bovenaan de pagina komt is een linked views visualisatie van twee kaarten. Één kaart gaat over de mensen die van een gemeente reizen naar een andere. De andere kaart gaat over de mensen die naar gemeentes reizen vanuit een gemeente. Als je op een plaats in één van de kaarten klikt licht in beide kaarten deze plaats op en de gemeentes waar mensen vandaan komen of naartoe gaan. Daarnaast komt er ook een zoekvakje waarmee je plaatsen in Nederland kan zoeken en als je een plaats hebt gevonden licht deze weer op.  Ook komt er een tijdsbalkje waarmee je kan kiezen uit welk jaar je data wilt zien. Daarnaast verschijnt er wanneer je  een gemeente selecteert één lijngrafiek met de ontwikkeling over tijd in het aantal mensen dat naar een stad gaat en het aantal mensen dat uit de stad vertrekt. 
-Onder deze grafieken komen deelgrafieken die een verhaal vertellen. Dit is enigzins afhankelijk van de data, maar de onderdelen die ik nu in mijn hoofd heb zijn. 
+Onder deze grafieken komen deelgrafieken die een verhaal vertellen. Dit is enigzins afhankelijk van de data, maar de onderdelen die ik nu in mijn hoofd heb zijn: 
 	
 	Twee kaarten naast elkaar van één van de grote steden, waarbij je in de één de situatie voor de crisis ziet en de 		andere de 	situatie in 2014. Dit is een ingezoomde en specifieke versie van de grote kaart met een dropdown 		menu met de grote steden.  
 	
