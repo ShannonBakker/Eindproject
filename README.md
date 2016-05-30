@@ -20,7 +20,7 @@ Onder deze grafieken komen deelgrafieken die een verhaal vertellen. Dit is enigz
 	
 	Een barchart met de gemeenten waar de inwoners het verst moeten reizen voor hun werk.  
 
-De MVP is de hoofdvisualisatie bovenaan de pagina. Hierbij kan het tijdbalkje en zoekbalkje nog worden weggelaten. 
+De MVP is de hoofdvisualisatie bovenaan de pagina. Hierbij kan het tijdbalkje en zoekbalkje nog worden weggelaten. In de doc map staat een schets van de volledige visualisatie. 
 
 ######Inspiratie
 De belangrijkste inspiratie voor de visualisaties is [dit artikel](http://www.tijd.be/ondernemen/transport/Interactief_De_pendelaars_van_en_naar_uw_gemeente.9734600-3084.art) over pendelen in België. Het belangrijkste verschil is dat ik als hoofdvisualisatie een linked views visualisatie heb. Daarnaast zullen de visualisaties onder de hoofdvisualisatie anders zijn, deze zijn namelijk afhankelijk van de trends in de data. Daarnaast zie je de vorm van één hoofdvisualisatie en meerdere meer statische visualisaties ook regelmatig bij andere media zoals The New York Times. De volgende artikelen zijn hier goede voorbeelden van:
