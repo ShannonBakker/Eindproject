@@ -6,7 +6,7 @@ van de New York Times. De pagina start dus met een titel en ondertitel. Vervolge
 
 
 ###Hoofdvisualisatie
-![](doc/hoofdvisualisatie1.png)
+
 In deze visualisatie kan de gebruiker zelf kijken waar de mensen vandaan komen die in zijn woonplaats werken en waar inwoners van zijn woonplaats gaan werken. 
 
 ######Dataset
@@ -14,7 +14,8 @@ De dataset bevat informatie per gemeente over het aantal mensen dat daar werkt e
 
 ######Opbouw databestand voor visualisatie
 Het databestand zal omgezet worden in een json file. Dit json file heeft drie properties  de plaats, het aantal mensen dat per plaats naar “de plaats” reist en  aantal mensen dat per plaats van “de plaats” weg  reist. Deze laatse twee properties is een array van objects, die allemaal een plaatsnaam en het aantal mensen bevat. 
-Voor ieder jaar wordt een nieuw databestand geladen. 
+Voor ieder jaar wordt een nieuw databestand geladen. Een voorbeeldstukje json:
+![](doc/json.png)
 
 
 ######Laden van de kaart
@@ -38,6 +39,9 @@ De dataset bevat de gemiddelde verkoopprijs van een huis per jaar en de gemiddel
 De data komt in een json-file, waarbij iedere plaats een object is met de properties plaatsnaam, gemiddelde verkoopprijs en gemiddelde afstand. De laatste twee zijn dan weer array’s van object met het jaartal en de data. 
 Keuzemogelijkheden
 De gebruiker kan met een dropdown kiezen over hij de gemiddeldes over de vier grote steden wil zien, of dat hij de data per stad wil zien. 
+
+Deelvisualisatie 1 van Utrecht:
+![](doc/deelvisualisatie1.png)
  
 ###Deelvisualisatie 2: De verste reizigers
 In deze visualisatie kan de lezer zien wat de gemeentes zijn van waaruit de mensen het verst moeten reizen naar hun werk en waar zij naartoe gaan. Deze visualisatie bestaat uit een barchart en een kaart. 
@@ -49,6 +53,9 @@ De dataset bevat de gemiddelde afstand die inwoners van een gemeente moeten afle
 Het json object per plaats bevat de volgende properties: plaatsnaam, gemiddelde reisafstand en de plaatsen waarnaartoe gereisd wordt. 
 Werking visualisatie
 De gebruiker ziet in eerste instantie een barchart van de tien gemeentes van waaruit mensen het verst moeten reizen. Wanneer men op één van de barchart klikt ziet met een versie van de “van” kaart uit de hoofdvisualisatie, die is ingekleurd voor de plaats die in de barchart is aangeklikt. Hierdoor ziet men waar de verste reizigers naartoe moeten. 
+
+Deelvisualisatie 2:
+![](doc/deelvisualisatie2.png)
 
 ###Deelvisualisatie 3: Aantal werkenden per inwoner
 Dit is een kaart dat laat zien wat per gemeente de balans is tussen het aantal mensen dat woont in een stad en het aantal inwoners van Nederland dat daar werkt. 
@@ -62,3 +69,5 @@ Het json object per plaats bevat de volgende properties: plaatsnaam en aantal we
 ######Werking visualisatie
 De visualisatie wordt ingekleurd aan de hand van het aantal werkenden per inwoner, er komt ook een tooltip waarin je het precieze getal kan zien. Als een stad een waarde groter dan 1 heeft werken er meer mensen dan dat er wonen. 
 
+Deelvisualisatie 3:
+![](doc/deelvisualisatie3.png)
