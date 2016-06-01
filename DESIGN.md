@@ -6,7 +6,7 @@ van de New York Times. De pagina start dus met een titel en ondertitel. Vervolge
 
 
 ###Hoofdvisualisatie
-![](doc/hoofdvisualisatie1.jpg)
+![](doc/hoofdvisualisatie1.png)
 In deze visualisatie kan de gebruiker zelf kijken waar de mensen vandaan komen die in zijn woonplaats werken en waar inwoners van zijn woonplaats gaan werken. 
 
 ######Dataset
@@ -22,6 +22,11 @@ De kaart wordt gemaakt met behulp van svg files van Nederland. Het nadeel van Ne
 
 ######Koppeling tussen twee kaarten
 Wanneer er op een plaats geklikt wordt in één van de kaarten licht deze plaats in beide kaarten op. Er komt dus een onclick functie die werkt op beide kaarten. Als een plaats wordt geselecteerd wordt dus zowel de data van het aantal mensen dat per plaats naar “de plaats” reist en  aantal mensen dat per plaats van “de plaats” weg  reist gebruikt. 
+
+Voor klikken op plaats Rotterdam:
+![](doc/hoofdvisualisatie1.png)
+Na klikken op plaats Rotterdam:
+![](doc/hoofdvisualisatie2.png)
 
 ###Deelvisualisatie 1: Huizenprijzen grote steden
 Deze visualisatie laat zien of er een verband is tussen de stijging van de huizenprijzen in een stad en de afstand die mensen afleggen om in een stad te kunnen werken. Deze visualisatie is een linegraph met twee assen (afbeeldingnaam).
