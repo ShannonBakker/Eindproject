@@ -2,7 +2,7 @@
 
 ### Webpagina
 Het design van de webpagina is gebaseerd op [dit artikel](http://www.nytimes.com/interactive/2015/05/03/upshot/the-best-and-worst-places-to-grow-up-how-your-area-compares.html?&contentId=&mediaId=&referrer=http%3A%2F%2Fwww.nytimes.com%2Fpages%2Fmultimedia%2Findex.html%3Fmodule%3DSiteIndex%26region%3DFooter%26pgtype%3Dsectionfront&priority=true&action=click&contentCollection=U.S.&region=Footer&module=WhatsNext&version=WhatsNext&contentID=WhatsNext&moduleDetail=undefined&pgtype=Multimedia)
-van de New York Times. De pagina start dus met een titel en ondertitel. Vervolgens volgt de hoofdvisualisatie. Hierna komt een stuk tekst over de hoofdvisualisatie en deelvisualisatie 1. Dan komt deelvisualisatie 1 zelf. Dan weer een blok tekst. Dan komt deelvisualisatie 2, etc. De hoofdvisualisatie en de verschillende deelvisualisaties zijn niet met elkaar gelinkt. 
+van de New York Times. De pagina start dus met een titel en ondertitel. Vervolgens volgt de hoofdvisualisatie. Hierna komt een stuk tekst over de hoofdvisualisatie en deelvisualisatie 1. Dan komt deelvisualisatie 1 zelf. Dan weer een blok tekst. Dan komt deelvisualisatie 2, etc. De hoofdvisualisatie en de verschillende deelvisualisaties zijn niet met elkaar gelinkt en zullen dus ook in verschillende scripts worden geschreven. 
 
 
 ###Hoofdvisualisatie
@@ -13,16 +13,16 @@ In deze visualisatie kan de gebruiker zelf kijken waar de mensen vandaan komen d
 De dataset bevat informatie per gemeente over het aantal mensen dat daar werkt en het aantal mensen dat daar woont. Deze informatie is uitgesplitst per gemeente zodat je kan zien uit welke woongemeentes de mensen komen die in een andere gemeente werken. In deze dataset zijn inwoners van Nederland die in het buitenland werken en inwoners van een ander land die in Nederland werken niet meegenomen. Dit is ten eerste gedaan omdat de data niet beschikbaar is, daarnaast houdt het de kaart ook beperkt en overzichtelijk. 
 
 ######Opbouw databestand voor visualisatie
-Het databestand zal omgezet worden in een jsonfile. Dit jsonfile is nested opgebouwd. De propertie plaatsen heeft als waarde een array van alle plaatsen. Een plaats heeft twee properties, plaatsnaam en  jaar. De waarde van jaar is een object met de properties jaartal, plaatsen_van en plaatsen_naar. Plaatsen_van en plaatsen_naar hebben een array als waarde. Deze arrays is een array van objecten met de properties plaatsnaam en aantal_mensen. 
+Het databestand zal omgezet worden in een jsonfile. Dit jsonfile is nested opgebouwd. De propertie "plaatsen" heeft als waarde een array van alle plaatsen. Een "plaats" heeft twee properties, "plaatsnaam" en  "jaar". De waarde van "jaar" is een array van objecten met de properties "jaartal", "plaatsen_van" en "plaatsen_naar". "Plaatsen_van" en "plaatsen_naar" hebben een array als waarde. Deze arrays is een array van objecten met de properties "plaatsnaam" en "aantal_mensen". 
 Een voorbeeldstukje json:
 ![](doc/json.png)
 
 
 ######Laden van de kaart
-De kaart wordt gemaakt met behulp van een svg file met de gemeenten van Nederland. Het nadeel van Nederland is dat ieder jaar de gemeentegrenzen van minstens één gemeente wijzigt. Ik zal toch ieder jaar de gemeente indeling van 2014 gebruiken om een vergelijking tussen jaren mogelijk te maken. Alle gevonden data gebruikt ook de gemeente indeling van 2014. 
+De kaart wordt gemaakt met behulp van een svg file met de gemeenten van Nederland. Het nadeel van Nederland is dat ieder jaar de gemeentegrenzen van minstens één gemeente wijzigt. Ik zal toch ieder jaar de gemeente-indeling van 2014 gebruiken om een vergelijking tussen jaren mogelijk te maken. Alle gevonden data gebruikt ook de gemeente indeling van 2014. 
 
 ######Koppeling tussen twee kaarten
-Wanneer er op een plaats geklikt wordt in één van de kaarten licht deze plaats in beide kaarten op. Er komt dus een onclick functie die werkt op beide kaarten. Als een plaats wordt geselecteerd wordt dus zowel de data van het aantal mensen dat per plaats naar “de plaats” reist en  aantal mensen dat per plaats van “de plaats” weg  reist gebruikt. 
+Wanneer er op een plaats geklikt wordt in één van de kaarten licht deze plaats in beide kaarten op. Er komt dus een onclick functie die werkt op beide kaarten. Als een plaats wordt geselecteerd wordt dus zowel de data van het aantal mensen dat per plaats naar “de plaats” reist en aantal mensen dat per plaats van “de plaats” weg reist gebruikt. 
 
 Voor klikken op plaats Rotterdam:
 ![](doc/hoofdvisualisatie1.png)
@@ -33,10 +33,10 @@ Na klikken op plaats Rotterdam:
 Deze visualisatie laat zien of er een verband is tussen de stijging van de huizenprijzen in een stad en de afstand die mensen afleggen om in een stad te kunnen werken. Deze visualisatie is een linegraph met twee assen (afbeeldingnaam).
 
 ######Dataset
-De dataset bevat de gemiddelde verkoopprijs van een huis van de vier grote steden en de gemiddelde afstand die naar één van de grote steden wordt afgelegd. Alle data is per jaar beschikbaar.
+De dataset bevat de gemiddelde verkoopprijs van een huis in de vier grote steden en de gemiddelde afstand die naar één van de grote steden wordt afgelegd. Alle data is per jaar beschikbaar.
 
 ######Opbouw databestand voor visualisatie
-De data komt in een json-file, waarbij iedere plaats een object is met de properties plaatsnaam, gemiddelde verkoopprijs en gemiddelde afstand. De laatste twee zijn dan weer array’s van object met het jaartal en de data. Ook komt het gemiddelde over de vier steden in het jsonfile. 
+De data komt in een json-file, waarbij iedere plaats een object is met de properties plaatsnaam, gemiddelde verkoopprijs en gemiddelde afstand. De laatste twee zijn dan weer array’s van objecten met het jaartal en de data. Ook komt het gemiddelde over de vier steden in het jsonfile. 
 
 ######Keuzemogelijkheden
 De gebruiker kan met een dropdown kiezen of hij de gemiddeldes over de vier grote steden wil zien, of dat hij de data per stad wil zien. 
