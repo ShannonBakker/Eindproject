@@ -7,12 +7,12 @@ In deze visualisatie kan de gebruiker zelf kijken waar de mensen vandaan komen d
 De dataset bevat informatie per gemeente over het aantal mensen dat daar werkt en het aantal mensen dat daar woont. Deze informatie is uitgesplitst per gemeente zodat je kan zien uit welke woongemeentes de mensen komen die in een andere gemeente werken. In deze dataset zijn inwoners van Nederland die in het buitenland werken en inwoners van een ander land die in Nederland werken niet meegenomen. Dit is ten eerste gedaan omdat de data niet beschikbaar is, daarnaast houdt het de kaart ook beperkt en overzichtelijk. 
 
 ######Opbouw databestand voor visualisatie
-Het databestand zal omgezet worden in een json file. Dit json file heeft drie properties  de plaats, het aantal mensen dat per plaats naar “de plaats” reist en  aantal mensen dat per plaats van “de plaats” weg  reist. Deze laatse twee properties is een array van object, die allemaal een plaatsnaam en het aantal mensen bevat. 
+Het databestand zal omgezet worden in een json file. Dit json file heeft drie properties  de plaats, het aantal mensen dat per plaats naar “de plaats” reist en  aantal mensen dat per plaats van “de plaats” weg  reist. Deze laatse twee properties is een array van objects, die allemaal een plaatsnaam en het aantal mensen bevat. 
 Voor ieder jaar wordt een nieuw databestand geladen. 
 
+
 ######Laden van de kaart
-De kaart wordt gemaakt met behulp van svg files van Nederland. Het nadeel van Nederland is dat ieder jaar de gemeentegrenzen van minstens één gemeente wijzigt. Ik zal toch ieder jaar de gemeente indeling van 2014 gebruiken om een vergelijking tussen jaren mogelijk te maken. Alle data gebruikt ook de gemeente indeling van 2014. 
-Ik heb twee tutorials gevonden voor het werken met svg bestanden en D3:
+De kaart wordt gemaakt met behulp van svg files van Nederland. Het nadeel van Nederland is dat ieder jaar de gemeentegrenzen van minstens één gemeente wijzigt. Ik zal toch ieder jaar de gemeente indeling van 2014 gebruiken om een vergelijking tussen jaren mogelijk te maken. Alle gevonden data gebruikt ook de gemeente indeling van 2014. 
 
 ######Koppeling tussen twee kaarten
 Wanneer er op een plaats geklikt wordt in één van de kaarten licht deze plaats in beide kaarten op. Er komt dus een onclick functie die werkt op beide kaarten. Als een plaats wordt geselecteerd wordt dus zowel de data van het aantal mensen dat per plaats naar “de plaats” reist en  aantal mensen dat per plaats van “de plaats” weg  reist gebruikt. 
