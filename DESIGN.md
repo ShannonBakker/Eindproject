@@ -1,6 +1,12 @@
 #Design document
 
+### Webpagina
+Het design van de webpagina is gebaseerd op [dit artikel](http://www.nytimes.com/interactive/2015/05/03/upshot/the-best-and-worst-places-to-grow-up-how-your-area-compares.html?&contentId=&mediaId=&referrer=http%3A%2F%2Fwww.nytimes.com%2Fpages%2Fmultimedia%2Findex.html%3Fmodule%3DSiteIndex%26region%3DFooter%26pgtype%3Dsectionfront&priority=true&action=click&contentCollection=U.S.&region=Footer&module=WhatsNext&version=WhatsNext&contentID=WhatsNext&moduleDetail=undefined&pgtype=Multimedia)
+van de New York Times. De pagina start dus met een titel en ondertitel. Vervolgens volgt de hoofdvisualisatie. Hierna komt een stuk tekst over de hoofdvisualisatie en deelvisualisatie 1. Dan komt deelvisualisatie 1 zelf. Dan weer een blok tekst. Dan komt deelvisualisatie 2, etc. 
+
+
 ###Hoofdvisualisatie
+![](doc/hoofdvisualisatie1.jpg)
 In deze visualisatie kan de gebruiker zelf kijken waar de mensen vandaan komen die in zijn woonplaats werken en waar inwoners van zijn woonplaats gaan werken. 
 
 ######Dataset
