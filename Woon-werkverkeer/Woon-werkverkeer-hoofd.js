@@ -1,6 +1,6 @@
 // create color function
-var color = d3.scale.threshold()
-    .domain([0.1, 0.2, 0.5, 1, 2,5,10,300])
+var color_scales = d3.scale.threshold()
+    .domain([0.1, 0.2, 0.5, 1.0, 1.5,2.0,2.5])
     .range(["#f7fcfd",
 		"#e0ecf4",
 		"#bfd3e6",
@@ -8,47 +8,61 @@ var color = d3.scale.threshold()
 		"#8c96c6",
 		"#8c6bb1",
 		"#88419d",
-		"#6e016b",
-		"#fed976"]);
+		"#6e016b"]);
 
-var div = d3.select("body").append("div")   
-    .attr("class", "tooltip")               
-    .style("opacity", 0);
-
+// set the tooltip
 var tooltip = d3.select("body")
 			.append("div")
 			.style("position", "absolute")
 			.style("z-index", "10")
 
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Frequency:</strong> <span style='color:red'>" + d.Plaats.plaatsnaam + "</span>";
-  })
+	
+
+function color_map(i, data){
+	// fill dataset in appropriate format
+	data.plaatsen[i].Plaats.jaar[0].plaatsen_van.forEach(function(item){ 
+		var iso = item.plaats;
+        var value = item.aantal_mensen;
+		colour= color_scales(value)
+		iso = iso.replace(/\s/g,'')
+		if (value == "-")
+			svg.select('#'+iso).style('fill', 'red')
+				.on("mouseover", function(d){return tooltip.text(iso + ": "+ value).style("visibility", "visible");})
+				.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+				.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+				.on("click", function(d){ 
+					// convert the data to the correct format, missing values get an absurd high value, so they can be coloured separately
+					for (i = 0; i < data.plaatsen.length; i++){
+						if(data.plaatsen[i].Plaats.plaatsnaam.replace(/\s/g,'') == iso){
+							color_map(i, data)
+						}
+					}
+				})
+		else 
+			svg.select('#'+iso).style('fill', colour)
+				.on("mouseover", function(d){return tooltip.text(iso + ": "+ value).style("visibility", "visible");})
+				.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+				.on("mouseout", function(){return tooltip.style("visibility", "hidden");})
+				.on("click", function(d){ 
+					// convert the data to the correct format, missing values get an absurd high value, so they can be coloured separately
+					for (i = 0; i < data.plaatsen.length; i++){
+						if(data.plaatsen[i].Plaats.plaatsnaam.replace(/\s/g,'') == iso){
+							color_map(i, data)
+						}
+					}
+				})
+			})
+}
   
-d3.json("kleinedataset.json", function(error, data) {
+d3.json("data_hoofdvisualisatie.json", function(error, data) {
 	if (error) {
 		console.log("error")
 		throw new Error("Something went badly wrong!");
 	}
-	console.log(data.plaatsen)
 	svg = d3.select('svg')
-	svg.call(tip)
-	path = svg.selectAll('#Amsterdam')
-		.data(data.plaatsen)
-			.on('mouseover', tip.show)
-			.on('mouseout', tip.hide)
-			
-	// fill dataset in appropriate format
-	data.plaatsen[2].Plaats.jaar[0].plaatsen_van.forEach(function(item){ 
-		var iso = item.plaats;
-        var value = item.aantal_mensen;
-		colour= color(value)
-		svg.select('#'+iso).style('fill', colour)
-    });
-	
-	
+	path = svg.selectAll('path')
+
+	color_map(2,data)
 });
 
 
