@@ -8,7 +8,7 @@ def jaarlijst(jaartal_list, csv_van, csv_naar, jaar,i):
     line_naar_list = []
     for line_van, line_naar in zip(csv_van, csv_naar):
         line_van_list.append(line_van)
-        line_naar_list.append(line_van)
+        line_naar_list.append(line_naar)
         
 
     data_van = line_van_list[i].strip().split(';')
