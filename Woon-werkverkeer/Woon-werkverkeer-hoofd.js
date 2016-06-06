@@ -11,7 +11,7 @@ var color = d3.scale.threshold()
 		"#6e016b",
 		"#fed976"]);
 
-
+var data ={}
 
 d3.json("data_hoofdvisualisatie.json", function(error, data) {
 	if (error) {
@@ -19,7 +19,7 @@ d3.json("data_hoofdvisualisatie.json", function(error, data) {
 		throw new Error("Something went badly wrong!");
 	}
 	
-	
+	data=data
 	svg = d3.select('svg')	
 	// fill dataset in appropriate format
 	data.plaatsen[15].Plaats.jaar[0].plaatsen_van.forEach(function(item){ 
@@ -27,9 +27,8 @@ d3.json("data_hoofdvisualisatie.json", function(error, data) {
         var value = item.aantal_mensen;
 		colour= color(value)
 		svg.select('#'+iso).style('fill', colour)
-		console.log(value)
-		
 
     });
 });
-
+console.log("hallo")
+console.log(data)
