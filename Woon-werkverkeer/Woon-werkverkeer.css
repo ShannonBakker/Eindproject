@@ -1,0 +1,34 @@
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+  
+}
+
+.y_axis_text{
+	text-anchor: end;
+	font-size:11px;
+}
+#mySelect{
+	width: 100px
+}
+
+.line_naar {
+  fill: none;
+  stroke: red;
+}
+
+.line_van {
+  fill: none;
+  stroke: blue;
+}
+
+.background {
+  fill: none;
+  pointer-events: all;
+}
