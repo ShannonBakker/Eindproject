@@ -1,11 +1,10 @@
-var data_overall;
+var data;
 var place;
-var year=2014; 
+var year; 
 
-d3.select('#slider6').call(d3.slider().axis(true).min(2006).max(2014).step(1).on("slide", function(evt, value) {
-		year = Number(value)
-		colour_map(place,data,true,(value-2006))
-		colour_map(place,data,false,(value-2006))
+d3.select('#slider6').call(d3.slider().axis(true).value(2014).min(2006).max(2014).step(1).on("slide", function(evt, value) {
+		colour_map(place,true,(value-2006))
+		colour_map(place,false,(value-2006))
 }));
 
 
@@ -30,10 +29,10 @@ var tooltip = d3.select("body")
 	.style("z-index", "10");
 
 // color the map
-function colour_map(i, data, van_of_naar,jaar){
-	
+function colour_map(i, van_of_naar,jaar){
+	year=jaar+2006
 	place = i
-	console.log(jaar)
+
 	// check if the map 'van' or the map 'naar' has to be coloured
 	alle_plaatsen = [];
 	if (van_of_naar == true){
@@ -85,8 +84,8 @@ function colour_map(i, data, van_of_naar,jaar){
 				for (i = 0; i < data.plaatsen.length; i++){
 					if(data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,'') == plaatsnaam){
 						make_linegraph(i,data)
-						colour_map(i, data, true,jaar);
-						colour_map(i, data, false,jaar);
+						colour_map(i, true,jaar);
+						colour_map(i, false,jaar);
 					};
 				};
 			});
@@ -96,24 +95,26 @@ function colour_map(i, data, van_of_naar,jaar){
 
 
 
-
+// parsedate function, to get the year ready for the linegraph
 var parseDate = d3.time.format("%Y-%m-%d").parse
 
 
 
 
-// load the map and default-color the map
-
+// load the data and default-color the map
 d3.json("data_hoofdvisualisatie_met_totaal.json", function(error, data_json) {
 	if (error) {
 		console.log("error")
 		throw new Error("Something went badly wrong!");
 	}
-	
+	// make a select element for the municipalities
 	d3.select("#select").append("select")
 	var select = d3.select("select")
-	
-	
+	select.attr("class","selectpicker")
+		.attr("id","choose_city")
+		.attr("data-live-search","true")
+		.style("display", "none")
+		.style("width", "350px")
 	i=0
 	data_json.plaatsen.forEach(function(d) {
 		d.plaats.totalen.totalen_van.forEach(function(j) {
@@ -126,16 +127,14 @@ d3.json("data_hoofdvisualisatie_met_totaal.json", function(error, data_json) {
 			j.jaartal = j.jaartal+"-01-01"
 			j.jaartal = parseDate(j.jaartal)
 		});
+		// add the municipalities to the select element
 		select.append("option")
 			.text(d.plaats.plaatsnaam)
 			.attr("value",i)
 		i+=1
 	});
-	select.attr("class","selectpicker")
-	.attr("id","choose_city")
-	.attr("data-live-search","true")
-	.style("display", "none")
-	.style("width", "350px")
+	
+	
 	
      $('.selectpicker').selectpicker({
 	style: 'btn-info',
@@ -147,10 +146,10 @@ d3.json("data_hoofdvisualisatie_met_totaal.json", function(error, data_json) {
 
 	
 	data = data_json
-	
-	make_linegraph(2,data)
-	colour_map(2,data,true,year-2006);
-	colour_map(2,data,false,year-2006);
+	year = 2014
+	make_linegraph(0,data)
+	colour_map(0,true,year-2006);
+	colour_map(0,false,year-2006);
 
 	
 });
@@ -160,9 +159,10 @@ d3.json("data_hoofdvisualisatie_met_totaal.json", function(error, data_json) {
 function myFunction(){
 	var x = document.getElementById("choose_city");
 	var strUser = x.options[x.selectedIndex].value
-	make_linegraph(2,data)
-	colour_map(strUser,data,false,2014-2006);
-	colour_map(strUser,data,true,2014-2006);
+	make_linegraph(strUser,data)
+	colour_map(strUser,false,year-2006);
+	colour_map(strUser,true,year-2006);
+	
 }
 
 
