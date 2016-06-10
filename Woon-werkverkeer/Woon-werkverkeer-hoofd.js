@@ -1,12 +1,14 @@
+var data_overall;
+var place;
+var year=2014; 
 
-var data;
+d3.select('#slider6').call(d3.slider().axis(true).min(2006).max(2014).step(1).on("slide", function(evt, value) {
+		year = Number(value)
+		colour_map(place,data,true,(value-2006))
+		colour_map(place,data,false,(value-2006))
+}));
 
-// function for the slider van http://bl.ocks.org/darrenjaworski/5397202
-onload = function() {
-  var $ = function(id) { return document.getElementById(id); };
-  $('slider').oninput = function() { $('range').innerHTML = this.value; };
-  $('slider').oninput();
-};
+
 
 // create color function
 var colour_scales = d3.scale.threshold()
@@ -30,15 +32,8 @@ var tooltip = d3.select("body")
 // color the map
 function colour_map(i, data, van_of_naar,jaar){
 	
-	// make use of recursion to change the map when the slider changes
-	var value;
-	d3.selectAll("input").on("change", function change() {
-		var value = this.value;
-		make_linegraph(i,data)
-		colour_map(i,data,true,(value-2006))
-		colour_map(i,data,false,(value-2006))
-	});
-	
+	place = i
+	console.log(jaar)
 	// check if the map 'van' or the map 'naar' has to be coloured
 	alle_plaatsen = [];
 	if (van_of_naar == true){
@@ -105,17 +100,20 @@ function colour_map(i, data, van_of_naar,jaar){
 var parseDate = d3.time.format("%Y-%m-%d").parse
 
 
-var data_overall;
+
 
 // load the map and default-color the map
 
-d3.json("data_hoofdvisualisatie_met_totaal_klein.json", function(error, data_json) {
+d3.json("data_hoofdvisualisatie_met_totaal.json", function(error, data_json) {
 	if (error) {
 		console.log("error")
 		throw new Error("Something went badly wrong!");
 	}
 	
-	var x = document.getElementById("slt_country");
+	d3.select("#select").append("select")
+	var select = d3.select("select")
+	
+	
 	i=0
 	data_json.plaatsen.forEach(function(d) {
 		d.plaats.totalen.totalen_van.forEach(function(j) {
@@ -128,28 +126,40 @@ d3.json("data_hoofdvisualisatie_met_totaal_klein.json", function(error, data_jso
 			j.jaartal = j.jaartal+"-01-01"
 			j.jaartal = parseDate(j.jaartal)
 		});
-		var option = document.createElement("option");
-		option.text = d.plaats.plaatsnaam;
-		option.value = i
-		x.add(option);
+		select.append("option")
+			.text(d.plaats.plaatsnaam)
+			.attr("value",i)
 		i+=1
 	});
+	select.attr("class","selectpicker")
+	.attr("id","choose_city")
+	.attr("data-live-search","true")
+	.style("display", "none")
+	.style("width", "350px")
+	
+     $('.selectpicker').selectpicker({
+	style: 'btn-info',
+	position: 'absolute',
+	left: '-30px',
+	top: '50px',
+	size: 4
+});
+
 	
 	data = data_json
 	
 	make_linegraph(2,data)
-	colour_map(2,data,true,2014-2006);
-	colour_map(2,data,false,2014-2006);
-	var strUser = x.options[x.selectedIndex].value
-	console.log(strUser)
+	colour_map(2,data,true,year-2006);
+	colour_map(2,data,false,year-2006);
+
 	
 });
 	
 
+
 function myFunction(){
-	var x = document.getElementById("slt_country");
+	var x = document.getElementById("choose_city");
 	var strUser = x.options[x.selectedIndex].value
-	console.log(strUser)
 	make_linegraph(2,data)
 	colour_map(strUser,data,false,2014-2006);
 	colour_map(strUser,data,true,2014-2006);

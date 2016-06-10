@@ -5,7 +5,7 @@ function make_linegraph(place_number){
 	var yearNameFormat = d3.time.format("%Y")
 
 	// set the margins of the graph
-	var margin = {top: 20, right: 300, bottom: 30, left: 20},
+	var margin = {top: 40, right: 300, bottom: 30, left: 50},
 		width = 960 - margin.left - margin.right,
 		height = 500 - margin.top - margin.bottom;
 
