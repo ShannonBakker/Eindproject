@@ -5,13 +5,13 @@ function make_linegraph(place_number){
 	var yearNameFormat = d3.time.format("%Y")
 
 	// set the margins of the graph
-	var margin = {top: 40, right: 300, bottom: 30, left: 50},
+	var margin = {top: 20, right: 20, bottom: 30, left: 300},
 		width = 960 - margin.left - margin.right,
 		height = 500 - margin.top - margin.bottom;
 
 	var x = d3.time.scale()
 		.range([0, width]);
-
+	
 	var y = d3.scale.linear()
 		.range([height, 0]);
 
@@ -25,7 +25,17 @@ function make_linegraph(place_number){
 	
 	// remove the old graph
 	d3.select('#linegraph').remove()
+	
+	missings = 0;
+	
+	data.plaatsen[place_number].plaats.totalen.totalen_van.forEach(function(item){
+		console.log(item.totaal_jaar)
+		if (isNaN(item.totaal_jaar)==true){
+			missings+=1
+		}
+	});
 
+	
 	// initialize the graph
 	var lineChart = d3.select("body").append("svg")
 		.attr("id", "linegraph")
@@ -33,9 +43,10 @@ function make_linegraph(place_number){
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+	
+	if (missings ==0){
 	//determine the domain for the y axis
-	x.domain(d3.extent(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.jaartal; }));
+	var xDomain = x.domain(d3.extent(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.jaartal; }));
 	var max =10;
 	var max_van = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.totaal_jaar; })
 	var max_naar = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_naar, function(d) { return d.totaal_jaar; })
@@ -45,7 +56,7 @@ function make_linegraph(place_number){
 	else{
 		max = max_naar;
 	}
-	y.domain([0,max])
+	var yDomain = y.domain([0,max])
 	
 	// make the x axis
 	lineChart.append("g")
@@ -94,6 +105,18 @@ function make_linegraph(place_number){
         .style("font-size", "17px")  
         .text("Totaal van en naar "+data.plaatsen[place_number].plaats.plaatsnaam);
 
+	var line = lineChart.append("g")
+      .attr("class", "path")
+	line.append("line")
+     .attr( 'x1',"0")
+	 .attr( 'y1',"-400")
+	 .attr( 'x2',"0")
+	 .attr( 'y2',"400")
+	 .style("stroke-dasharray", ("3, 3"))
+	 .style( 'stroke',"grey")
+	 .style( 'stroke-width',"1")
+	
+	
 	
 	// append the dots 
 	var dot = lineChart.append("g")
@@ -123,6 +146,7 @@ function make_linegraph(place_number){
       .attr("height", height)
 	  .on("mouseover", function() { dot.style("display", null); dot2.style("display", null);})
       .on("mousemove", mousemove)
+
 	
 	function mousemove() {
 		var xinverterd = x.invert(d3.mouse(this)[0]),
@@ -133,6 +157,7 @@ function make_linegraph(place_number){
         d = xinverterd - d0.jaartal > d1.jaartal - xinverterd ? d1 : d0;
 		dot.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
 		dot.select("text").text("Naar: "+ Math.round(d.totaal_jaar));
+		line.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")")
 	
 		var xinverterd = x.invert(d3.mouse(this)[0]),
 			together = data.plaatsen[place_number].plaats.totalen.totalen_van
@@ -141,8 +166,19 @@ function make_linegraph(place_number){
 			d1 = together[i],
 			d = xinverterd - d0.jaartal > d1.jaartal - xinverterd ? d1 : d0;
 		dot2.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
-		dot2.select("text").text("Van: "+ Math.round(d.totaal_jaar) + " jaar: "+ yearNameFormat(d.jaartal));
+		dot2.select("text").text("Van: "+ Math.round(d.totaal_jaar));
+		
 	}
   
-
+	}
+	else{
+	// give a message when the data is missing
+	lineChart.append("text")
+        .attr("x", (width/1.5))             
+        .attr("y", 0)
+        .attr("text-anchor", "end")  
+        .style("font-size", "17px")  
+        .text("Data van minimaal een jaar mist");
+	}
+		
  }

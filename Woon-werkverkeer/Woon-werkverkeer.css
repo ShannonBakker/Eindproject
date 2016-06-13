@@ -3,6 +3,47 @@ body {
   font: 10px sans-serif;
 }
 
+h2{
+	position: absolute;
+    left: 500px;
+}
+
+#svg_van{
+	position: relative; 
+	z-index:1; 
+	width: 400px; 
+	height: 500px;
+	left:200px; 
+	top: 200px; 
+}
+
+#select{
+	left:20px; 
+	top:100px; 
+	position:absolute;
+}
+
+#legenda{
+	left:20px; 
+	top:1000px; 
+	position:absolute;
+}
+
+#kiest_button{
+	position: absolute;  
+	width: 100px; 
+	top:100px; 
+	height: 30px;
+	left:240px;
+}
+
+/* linegraph */
+
+#linegraph{
+	position: relative; 
+	top:150px;
+}
+
 .axis path {
   fill: none;
   stroke: #000;
