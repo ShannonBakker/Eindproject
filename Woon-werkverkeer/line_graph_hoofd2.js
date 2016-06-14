@@ -5,9 +5,9 @@ function make_linegraph(place_number){
 	var yearNameFormat = d3.time.format("%Y")
 
 	// set the margins of the graph
-	var margin = {top: 20, right: 20, bottom: 30, left: 300},
+	var margin = {top: 20, right: 100, bottom: 30, left: 100},
 		width = 960 - margin.left - margin.right,
-		height = 500 - margin.top - margin.bottom;
+		height = 350 - margin.top - margin.bottom;
 
 	var x = d3.time.scale()
 		.range([0, width]);
@@ -29,7 +29,6 @@ function make_linegraph(place_number){
 	missings = 0;
 	
 	data.plaatsen[place_number].plaats.totalen.totalen_van.forEach(function(item){
-		console.log(item.totaal_jaar)
 		if (isNaN(item.totaal_jaar)==true){
 			missings+=1
 		}
@@ -37,7 +36,7 @@ function make_linegraph(place_number){
 
 	
 	// initialize the graph
-	var lineChart = d3.select("body").append("svg")
+	var lineChart = d3.select("#line_box").append("svg")
 		.attr("id", "linegraph")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
@@ -45,76 +44,74 @@ function make_linegraph(place_number){
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
 	if (missings ==0){
-	//determine the domain for the y axis
-	var xDomain = x.domain(d3.extent(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.jaartal; }));
-	var max =10;
-	var max_van = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.totaal_jaar; })
-	var max_naar = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_naar, function(d) { return d.totaal_jaar; })
-	if (Number(max_van)>Number(max_naar)) {
-		max = max_van;
-	}
-	else{
-		max = max_naar;
-	}
-	var yDomain = y.domain([0,max])
+		//determine the domain for the y axis
+		var xDomain = x.domain(d3.extent(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.jaartal; }));
+		var max =10;
+		var max_van = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.totaal_jaar; })
+		var max_naar = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_naar, function(d) { return d.totaal_jaar; })
+		if (Number(max_van)>Number(max_naar)) {
+			max = max_van;
+		}
+		else{
+			max = max_naar;
+		}
+		var yDomain = y.domain([0,max])
 	
-	// make the x axis
-	lineChart.append("g")
-      .attr("class", "x axis")
-	  .attr("transform", "translate(0," + height + ")", "rotate(-50)")
-		.call(xAxis)
+		// make the x axis
+		lineChart.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")", "rotate(-50)")
+			.call(xAxis)
 	
-	//make the y axis
-	lineChart.append("g")
-      .attr("class", "axis")
-      .call(yAxis)
-    .append("text")
-	.attr("class", "y_axis_text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 5)
-      .attr("dy", ".75em")
-      .text("Aantal mensen");
+		//make the y axis
+		lineChart.append("g")
+		.attr("class", "axis")
+		.call(yAxis)
+		.append("text")
+			.attr("class", "y_axis_text")
+			.attr("transform", "rotate(-90)")
+			.attr("y", 5)
+			.attr("dy", ".75em")
+			.text("Aantal mensen");
 	
-	
-	
-	// make the lines
-    lineChart.append("path")
-      .datum(data.plaatsen[place_number].plaats.totalen.totalen_van)
-      .attr("class", "line_van")
-	  .attr("y", 100)
-	  .attr("dy", ".75em")
-      .attr("d", d3.svg.line()
-			.x(function(d) { return x(d.jaartal); })
-			.y(function(d) { return y(d.totaal_jaar); }))
+		// make the lines
+		lineChart.append("path")
+			.datum(data.plaatsen[place_number].plaats.totalen.totalen_van)
+			.attr("class", "line_van")
+			.attr("y", 100)
+			.attr("dy", ".75em")
+			.attr("d", d3.svg.line()
+				.x(function(d) { return x(d.jaartal); })
+				.y(function(d) { return y(d.totaal_jaar); }))
 		
 	
-	lineChart.append("path")
-      .datum(data.plaatsen[place_number].plaats.totalen.totalen_naar)
-	  .attr("class", "line_naar")
-	  .attr("y", 100)
-	  .attr("dy", ".75em")
-      .attr("d", d3.svg.line()
-			.x(function(d) { return x(d.jaartal); })
-			.y(function(d) { return y(d.totaal_jaar); }))
+		lineChart.append("path")
+			.datum(data.plaatsen[place_number].plaats.totalen.totalen_naar)
+			.attr("class", "line_naar")
+			.attr("y", 100)
+			.attr("dy", ".75em")
+			.attr("d", d3.svg.line()
+				.x(function(d) { return x(d.jaartal); })
+				.y(function(d) { return y(d.totaal_jaar); }))
 	  
-	 // append the title
-	lineChart.append("text")
-        .attr("x", (width))             
-        .attr("y", 0)
-        .attr("text-anchor", "end")  
-        .style("font-size", "17px")  
-        .text("Totaal van en naar "+data.plaatsen[place_number].plaats.plaatsnaam);
+		// append the title
+		lineChart.append("text")
+			.attr("x", (width))             
+			.attr("y", 0)
+			.attr("text-anchor", "end")  
+			.style("font-size", "17px")  
+			.text("Totaal van en naar "+data.plaatsen[place_number].plaats.plaatsnaam);
 
-	var line = lineChart.append("g")
-      .attr("class", "path")
-	line.append("line")
-     .attr( 'x1',"0")
-	 .attr( 'y1',"-400")
-	 .attr( 'x2',"0")
-	 .attr( 'y2',"400")
-	 .style("stroke-dasharray", ("3, 3"))
-	 .style( 'stroke',"grey")
-	 .style( 'stroke-width',"1")
+		var line = lineChart.append("g")
+			.attr("class", "path")
+		line.append("line")
+			.attr( 'x1',"0")
+			.attr( 'y1',"-400")
+			.attr( 'x2',"0")
+			.attr( 'y2',"400")
+			.style("stroke-dasharray", ("3, 3"))
+			.style( 'stroke',"grey")
+			.style( 'stroke-width',"1")
 	
 	
 	

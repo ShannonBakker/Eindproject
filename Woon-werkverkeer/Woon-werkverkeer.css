@@ -1,47 +1,125 @@
 
-body {
-  font: 10px sans-serif;
+body{
+ font-family: "Gotham"!important;
+  /*background-color:  #ece2f0!important;*/
 }
-
+#middle{
+	/*border-style: solid;*/
+    border-width: 1px;
+	width: 1200px;
+	z-index:-1;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	/*background-color:  white !important;*/
+	height:1000px 
+}
+/* head_text */
 h2{
 	position: absolute;
-    left: 500px;
+	top:0px;
+	left: 450px;
+	font-weight: bold!important;
+}
+
+#intro{
+	width: 1200px;
+	position: absolute;
+	top:60px;
+	left: 70px;
+ 
+}
+#intro_text{
+	text-align: center;
+	
+}
+
+#explanation{
+	width: 1200px;
+	position: absolute;
+	top:950px;
+	left: 70px;
+}
+#explanation_text{
+	text-align: justify;
+}
+/* maps */
+#svg_naar{
+	position: absolute; 
+	z-index:10; 
+	width: 400px; 
+	height: 500px;
+	left:920px; 
+	top: 150px; 
 }
 
 #svg_van{
-	position: relative; 
+	position: absolute; 
 	z-index:1; 
+	width: 800px; 
+	height: 400px;
+	left:370px; 
+	top: 150px;
+	
+}
+
+#svg_afstand{
+	position: absolute; 
+	z-index:10; 
 	width: 400px; 
 	height: 500px;
-	left:200px; 
-	top: 200px; 
+	left:770px; 
+	top: 1100px; 
 }
 
+
+
+/* search box */
 #select{
-	left:20px; 
-	top:100px; 
+	left:100px; 
+	top:160px; 
 	position:absolute;
+	height: 30px;
 }
-
-#legenda{
-	left:20px; 
-	top:1000px; 
-	position:absolute;
-}
-
 #kiest_button{
 	position: absolute;  
 	width: 100px; 
-	top:100px; 
-	height: 30px;
-	left:240px;
+	top:160px; 
+	height: 35px;
+	left:320px;
+}
+/* time slider */
+#slider{
+	position: absolute; 
+	width: 320px; 
+	height: 10px;
+	left:100px; 
+	top: 250px;" 
+}
+
+#distance{
+	width: 960px;
+	position: absolute;
+	left:150px;
+	top: 1100px;
+  
+  
 }
 
 /* linegraph */
 
+#line_box{
+	width: 960px;
+	position: absolute;
+	left:240px;
+	top: 570px;
+  
+  
+}
+
 #linegraph{
-	position: relative; 
-	top:150px;
+	position:relative;
+  
 }
 
 .axis path {
@@ -54,9 +132,6 @@ h2{
 .y_axis_text{
 	text-anchor: end;
 	font-size:11px;
-}
-#mySelect{
-	width: 100px
 }
 
 .line_naar {
@@ -72,4 +147,27 @@ h2{
 .background {
   fill: none;
   pointer-events: all;
+}
+
+.bar {
+  fill: #7fcdbb;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
 }
