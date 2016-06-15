@@ -1,3 +1,7 @@
+function visualisation_distance(){
+// color the map for Terschelling
+//colour_map(321,3)
+
 var margin = {top: 50, right: 30, bottom: 120, left: 150},
    width = 600 - margin.left - margin.right,
    height = 600 - margin.top - margin.bottom;
@@ -52,15 +56,25 @@ x.domain([0, d3.max(data.data, function(d){return  d.afstand})]);
 	// append the bars to the text
 	chart.selectAll(".bar")
 		.data(data.data)
-    .enter().append("rect")
+    .enter().append("g")
+		.attr("class", "bar1")
+		.append("rect")
 		.attr("class", "bar")
 		.attr("y", function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")"); })
 		.attr("height", y.rangeBand())
 		.attr("x", function(d) { return 150; })
 		.attr("width", function(d) { return x(d.afstand); })
-		.on('mouseover', function(d){colour_map(d.gemeentenummer,3)})
-		
+		.on('mouseover', function(d){colour_map(d.gemeentenummer,3)});
+	
+	d3.selectAll('.bar1')
+		.append("text")
+		.attr("class","bartext")
+		.attr("x", function(d) { return x(d.afstand)+150-50; })
+		.attr("y",  function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")")+15; })
+		.style('color', 'red')
+		.attr("dy", ".35em")
+		.text(function(d) { return d.afstand + ' km'; });
 	
 	
 });
-
+}
