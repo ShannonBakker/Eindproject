@@ -6,8 +6,6 @@ body{
 }
 /* loading page */
 #load_page{
-	/*border-style: solid;*/
-    border-width: 1px;
 	width: 100%;
 	position: absolute;
 	z-index: 100;
@@ -18,9 +16,7 @@ body{
 }
 
 
-
-
-/* head_text */
+/* head text */
 h2{
 	position: absolute;
 	top:0px;
@@ -32,14 +28,12 @@ h2{
 	width: 1200px;
 	position: absolute;
 	top:60px;
-	left: 70px;
- 
+	left: 70px; 
 }
 #intro_text{
 	text-align: center;
-	
 }
-
+/* middle text */
 #explanation{
 	width: 1200px;
 	position: absolute;
@@ -49,6 +43,7 @@ h2{
 #explanation_text{
 	text-align: justify;
 }
+
 /* maps */
 #svg_naar{
 	position: absolute; 
@@ -77,7 +72,15 @@ h2{
 	left:770px; 
 	top: 1100px; 
 }
-
+#tooltip{
+	position: absolute;
+	z-index:10;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.2); 
+	color: #000;
+	color: rgba(0, 0, 0, 1.0);
+	
+}
 
 
 /* search box */
@@ -168,7 +171,6 @@ h2{
 }
 
 .bartext{
-	
 	text-align: left;
 	z-index: 20;
 	color: red;

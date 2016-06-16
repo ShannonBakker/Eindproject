@@ -102,9 +102,40 @@ function make_linegraph(place_number){
 			.style("font-size", "17px")  
 			.text("Totaal van en naar "+data.plaatsen[place_number].plaats.plaatsnaam);
 
-		var line = lineChart.append("g")
-			.attr("class", "path")
-		line.append("line")
+		// append the dots 
+		var dot = lineChart.append("g")
+			.attr("class", "dot")
+			.style("display", "none")
+		dot.append("circle")
+			.attr("r", 3);
+		dot.append("text")
+			.attr("x", 9)
+			.attr("y", -10)
+			.attr("dy", ".35em");
+	  
+		var dot2 = lineChart.append("g")
+			.attr("class", "dot")
+			.style("display", "none")
+		dot2.append("circle")
+			.attr("r", 3);
+		dot2.append("text")
+			.attr("x", 9)
+			.attr("y", 10)
+			.attr("dy", ".35em");
+
+		// append the overlay, necessary for the tooltip
+		lineChart.append("rect")
+			.attr("class", "background")
+			.attr("width", width)
+			.attr("height", height)
+			.on("mouseover", function() { dot.style("display", null);dot2.style("display", null); })
+			.on("mousemove", mousemove);
+	
+		// append the line that enables the user to see on which year he is
+		var line_box = lineChart.append("svg")
+			.attr("width", width)
+			.attr("height", height)
+		var line = line_box.append("line")
 			.attr( 'x1',"0")
 			.attr( 'y1',"-400")
 			.attr( 'x2',"0")
@@ -112,64 +143,34 @@ function make_linegraph(place_number){
 			.style("stroke-dasharray", ("3, 3"))
 			.style( 'stroke',"grey")
 			.style( 'stroke-width',"1")
-	
-	
-	
-	// append the dots 
-	var dot = lineChart.append("g")
-      .attr("class", "dot")
-      .style("display", "none")
-	dot.append("circle")
-      .attr("r", 3);
-	dot.append("text")
-      .attr("x", 9)
-	  .attr("y", -10)
-      .attr("dy", ".35em");
-	  
-	var dot2 = lineChart.append("g")
-      .attr("class", "dot")
-      .style("display", "none")
-	dot2.append("circle")
-      .attr("r", 3);
-	dot2.append("text")
-      .attr("x", 9)
-	  .attr("y", 10)
-      .attr("dy", ".35em");
 
-	// append the overlay, necessary for the tooltip
-	lineChart.append("rect")
-      .attr("class", "background")
-      .attr("width", width)
-      .attr("height", height)
-	  .on("mouseover", function() { dot.style("display", null); dot2.style("display", null);})
-      .on("mousemove", mousemove)
-
+		// the function for the mousemove	
+		// inspiration from http://bl.ocks.org/mbostock/3902569
+		function mousemove() {
+			var xinverterd = x.invert(d3.mouse(this)[0]),
+				together = data.plaatsen[place_number].plaats.totalen.totalen_naar
+				i = bisectDate(together, xinverterd, 1),
+				d0 = together[i - 1],
+				d1 = together[i],
+				d = xinverterd - d0.jaartal > d1.jaartal - xinverterd ? d1 : d0;
+			dot.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
+			dot.select("text").text("Naar: "+ Math.round(d.totaal_jaar));
+			line.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
 	
-	function mousemove() {
-		var xinverterd = x.invert(d3.mouse(this)[0]),
-			together = data.plaatsen[place_number].plaats.totalen.totalen_naar
-			i = bisectDate(together, xinverterd, 1),
-        d0 = together[i - 1],
-        d1 = together[i],
-        d = xinverterd - d0.jaartal > d1.jaartal - xinverterd ? d1 : d0;
-		dot.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
-		dot.select("text").text("Naar: "+ Math.round(d.totaal_jaar));
-		line.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")")
-	
-		var xinverterd = x.invert(d3.mouse(this)[0]),
-			together = data.plaatsen[place_number].plaats.totalen.totalen_van
-			i = bisectDate(together, xinverterd, 1),
-			d0 = together[i - 1],
-			d1 = together[i],
-			d = xinverterd - d0.jaartal > d1.jaartal - xinverterd ? d1 : d0;
-		dot2.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
-		dot2.select("text").text("Van: "+ Math.round(d.totaal_jaar));
+			var xinverterd = x.invert(d3.mouse(this)[0]),
+				together = data.plaatsen[place_number].plaats.totalen.totalen_van
+				i = bisectDate(together, xinverterd, 1),
+				d0 = together[i - 1],
+				d1 = together[i],
+				d = xinverterd - d0.jaartal > d1.jaartal - xinverterd ? d1 : d0;
+			dot2.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
+			dot2.select("text").text("Van: "+ Math.round(d.totaal_jaar));
 		
-	}
+		}
   
 	}
-	else{
 	// give a message when the data is missing
+	else {
 	lineChart.append("text")
         .attr("x", (width/1.5))             
         .attr("y", 0)

@@ -1,14 +1,15 @@
 var data;
 var place;
 var year; 
-var previous_van
-var previous_naar
+var previous_van;
+var previous_naar;
+var previous_afstand;
 
-// make the slider working
+// set the time slider 
 d3.select('#slider').call(d3.slider().axis(true).value(2014).min(2006).max(2014).step(1).on("slide", function(evt, value) {
-		year=value
-		colour_map(place,1)
-		colour_map(place,2)
+		year=value;
+		colour_map(place,1);
+		colour_map(place,2);
 }));
 
 // set the color scale
@@ -22,20 +23,21 @@ var colour_scales = d3.scale.threshold()
 		'#1d91c0',
 		'#225ea8',
 		'#253494',
-		'#081d58']);
+		'#081d58']
+	);
 
 // set the tooltip
-var tooltip = d3.select("body")
-	.append("div")
-	.style("position", "absolute")
-	.style("z-index", "10");
+var tooltip = d3.select("body").append("div")
+	.attr('id', 'tooltip')
+	
 
 // add the legend
+//inspiration from http://multimedia.tijd.be/commute/js/pendelgem.js
 var svg_legend = d3.select("#svg_van")
-var legendy = 200;
+var legend_size = 200;
 svg_legend.append("g")
     .attr("class", "legend")
-    .attr("transform", "translate(-150," + legendy + ")");
+    .attr("transform", "translate(-150," + legend_size + ")");
 
 var legend = d3.legend.color()
     .labels(["0 of missend","100-200","200-300","300-400","400-500","500-1000", "1000-2000","2000-5000", ">5000"])
@@ -50,105 +52,58 @@ svg_legend.select(".legend")
 // inspiration http://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
 function select_municipality(){
 	var x = document.getElementById("choose_city");
-	var strUser = x.options[x.selectedIndex].value
-	console.log(strUser);
-	make_linegraph(strUser)
-	colour_map(strUser,2);
-	colour_map(strUser,1);	
+	place = x.options[x.selectedIndex].value
+	make_linegraph(place)
+	colour_map(place,2);
+	colour_map(place,1);	
 }
 
-// add the event listeners for the map  and color the places
-function add_mousefunctions(svg, message, plaatsnaam,place_name2, aantal_mensen){
-	
-	// change the aantal_mensen to display them correctly in the tooltip
-	if (aantal_mensen == '-'){
-		aantal_mensen = 'een onbekend aantal';
-	}
-	else{
-		aantal_mensen = Math.round(aantal_mensen*1000);
-	}
-	
-	// add the mouse functions
-	var selected_place = svg.select('#'+plaatsnaam).style('fill', colour).attr("class","selected_place")
+// add the tooltip to the maps
+function add_mouseover(svg, message, place_name,place_name_with_spaces,aantal_mensen){
+	var selected_place = svg.select('#'+place_name).style('fill', colour).attr("class","selected_place")
 		.on("mouseover", function(d){
-			 tooltip.text(message + place_name2+ " reizen "+ aantal_mensen + " mensen")
+			 tooltip.text(" " + message + place_name_with_spaces+ " reizen "+ aantal_mensen + " mensen ")
 				.style("visibility", "visible");
-			})
-		.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px")
-			.style("left",(event.pageX+10)+"px");})
-		.on("mouseout", function(){
-				tooltip.style("visibility", "hidden");
-			})
-		.on("click", function(d){ 	
-			// update the place select button
-			//console.log(place_name2)
-			
-			//$('.selectpicker').selectpicker({'title': place_name2});
-				//.selectpicker('render')
-			//$('.selectpicker').selectpicker('refresh');
-		
-			
-			
-			// make use of recursion to recolor the map when one clicks on a municipality
-			for (i = 0; i < data.plaatsen.length; i++){
-				if(data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,'') == plaatsnaam){
-					make_linegraph(i)
-					colour_map(i, 1);
-					colour_map(i, 2);
-				};
-			};
-		});
+		})
+}
+
+// change the border of the selected place	
+function change_border(svg, previous){
+	if (previous != null){
+		previous.style("stroke", "grey")
+		.style("stroke-width", "1")
 	}
-	
+	var selected_place = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
+		.style("stroke", "#fd8d3c")
+		.style("stroke-width", "3")
+}
 
 // color the map
 function colour_map(i, van_of_naar){
-	tooltip.text("Je hebt voor "+ data.plaatsen[i].plaats.plaatsnaam+ " gekozen")
-$('.selectpicker').selectpicker('refresh');
-	place = i
-	// check which map has to be coloured
+	
+	place = i;
+	// select the map and place that have to be coloured
 	alle_plaatsen = [];
 	if (van_of_naar == 1){
-		 
 		svg = d3.select('#svg_van');
-		alle_plaatsen = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
-		message = "Van "+ data.plaatsen[i].plaats.plaatsnaam 
-		tooltip_message = "naar "
-		
-		// change the border of the selected place
-		if (previous_van != null){
-				previous_van.style("stroke", "grey")
-				.style("stroke-width", "1")
-			}
-		var selected_place = svg.select('#'+data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,''))
-			.style("stroke", "#fd8d3c")
-			.style("stroke-width", "3")
-		
-			previous_van= selected_place
+		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
+		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam 	
+		change_border(svg,previous_van)
+		previous_van = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
 	}
 	else if (van_of_naar == 2) {
-		
 		svg = d3.select('#svg_naar');
-		alle_plaatsen = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_naar;
-		message = "Naar "+ data.plaatsen[i].plaats.plaatsnaam 
-		tooltip_message = "van "
-		
-		// change the border of the selected place 
-		if (previous_naar != null){
-				previous_naar.style("stroke", "grey")
-				.style("stroke-width", "1")
-			}
-		var selected_place= svg.select('#'+data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,''))
-			.style("stroke", "#fd8d3c")
-			.style("stroke-width", "3")
-		
-			previous_naar= selected_place
+		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_naar;
+		title_message = "Naar "+ data.plaatsen[i].plaats.plaatsnaam 
+		change_border(svg,previous_naar)
+		previous_naar = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
 	}
 	else if (van_of_naar == 3) {
 		svg = d3.select('#svg_afstand');
-		alle_plaatsen = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
-		message = "Van "+ data.plaatsen[i].plaats.plaatsnaam 
-		tooltip_message = "Naar "
+		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
+		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam 
+		change_border(svg,previous_afstand)
+		previous_afstand = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
 	};
 	
 	// add a title to the map
@@ -158,47 +113,67 @@ $('.selectpicker').selectpicker('refresh');
         .attr("x", 20)
         .attr("y", 20)
 		.attr('id', 'place_title')
-        .text(message)
+        .text(title_message)
         .attr("font-size", "17px")
 
 	// make a loop trough all places with data about the amount of people travelling to or from a place attached to it
 	// p is places and m is the amount of people, the variable names are this short to decrease the size of the dataset
-	alle_plaatsen.forEach(function(item){ 
+	all_places.forEach(function(item){ 
 		var place_name = item.p;
-        var aantal_mensen = item.m;
+        var amount_of_people = item.m;
 		
-		// check if the data is missing
-		if (aantal_mensen == "-"){
+		// check if the data is missing and change the data of 'aantal_mensen' accordingly
+		if (amount_of_people == "-"){
 			colour = '#cdc3cc';
+			amount_of_people = 'een onbekend aantal';
 		}
 		else{
-			colour= colour_scales(aantal_mensen);
+			colour= colour_scales(amount_of_people);
+			amount_of_people = Math.round(amount_of_people*1000);
 		};
-		place_name2= place_name
-				
+		
 		// remove the spaces from the placename
+		place_name_with_spaces= place_name	
 		place_name = place_name.replace(/\s/g,'');
 		
-		// select all the municipalities in the svg and give them a color and mouse-functions
-		if (van_of_naar == 2){
-			add_mousefunctions(svg, 'van ',place_name, place_name2, aantal_mensen)
+		// add the mouse functions
+		svg.select('#'+place_name).style('fill', colour).attr("class","selected_place")
+			.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px")
+				.style("left",(event.pageX+10)+"px");})
+			.on("mouseout", function(){
+				tooltip.style("visibility", "hidden");
+			})
+			.on("click", function(d){ 	
+				if (van_of_naar !=3){
+					console.log("hoi")
+					tooltip.text("Je hebt voor "+ place_name+ " gekozen")
+			
+					// make use of recursion to recolor the map when one clicks on a municipality
+					for (i = 0; i < data.plaatsen.length; i++){
+						if(data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,'') == place_name){
+							make_linegraph(i);
+							colour_map(i, 1);
+							colour_map(i, 2);
+						};
+					};
+				};
+			});	
 		
+		// add  the mouseover 
+		if (van_of_naar == 2){
+			add_mouseover(svg, 'van ',place_name, place_name_with_spaces, amount_of_people);
 		}
 		else{
-			add_mousefunctions(svg, 'naar ', place_name,place_name2, aantal_mensen)
+			add_mouseover(svg, 'naar ', place_name,place_name_with_spaces, amount_of_people);
 		}
-		});
-	
+	});
 };
-
-
 
 
 // parsedate function, to get the year ready for the linegraph
 var parseDate = d3.time.format("%Y-%m-%d").parse
 
-
-// load the data and default-color the map
+// load the data 
 d3.json("data_hoofdvisualisatie_met_totaal_klein.json", function(error, data_json) {
 	if (error) {
 		console.log("error")
@@ -240,7 +215,6 @@ d3.json("data_hoofdvisualisatie_met_totaal_klein.json", function(error, data_jso
 	size: 4
 	});
 
-	
 	data = data_json
 	year = 2014
 	tooltip.style("visibility", "hidden")
@@ -248,11 +222,5 @@ d3.json("data_hoofdvisualisatie_met_totaal_klein.json", function(error, data_jso
 	colour_map(0,1);
 	colour_map(0,2);
 	visualisation_distance();
-	d3.select("#load_page").remove();
-	
+	d3.select("#load_page").remove();	
 });
-	
-
-
-
-
