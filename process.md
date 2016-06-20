@@ -93,3 +93,6 @@
 
 # dag 16
 - process book op github geplaatst
+- Titel aan visualisatie 2 toegevoegd
+- Uitleg bij hoofdvisualisatie gevoegd
+- Begonnen met verslag
