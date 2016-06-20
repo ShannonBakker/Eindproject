@@ -1,12 +1,12 @@
-#Eindverslag
-###Beschrijving datavisualisatie
+# Eindverslag
+### Beschrijving datavisualisatie
 De visualisatie gaat over het woon-werkverkeer in Nederland. De pagina bestaat uit twee visualisaties. De belangrijkste visualisatie, hier verder hoofdvisualisatie genoemd staat bovenaan de pagina. Deze visualisatie bestaat uit twee kaarten en een lijngrafiek. De kaarten zijn ingekleurd op basis van het aantal mensen dat van of naar een gekozen plaats reist voor zijn werk. Wanneer de pagina wordt geladen is deze plaats standaard Amsterdam. Vervolgens kan men met een dropdown-menu of door te klikken op één van de kaarten een plaats selecteren. Ook kan het jaartal met behulp van een slider worden veranderd. Gekoppeld aan deze kaarten zit ook een lijngrafiek. Deze laat de ontwikkeling over tijd in het aantal mensen dat naar een gemeente gaat en het aantal mensen dat uit de gemeente vertrekt zien. 
 Hierna volgt een stukje tekst met highlights uit de hoofdvisualisatie en de tweede visualisatie. Deze tweede visualisatie laat de top tien van gemeentes van waaruit gemiddeld het verste wordt gereisd naar werk. De visualisatie bestaat uit een liggende barchart en een kaart. Op de barchart zie je de gemeentes en de gemiddelde reisafstand, op de kaart zie je wanneer je met de muis over een bar gaat waar de mensen uit deze gemeente naartoe reizen. 
 
-###Technisch design
+### Technisch design
 De visualisatie heeft één html en css pagina, een dataset in json en meerdere javascript functies. Dit is hoofdvisualisatie.js hiermee wordt de data ingeladen, het dropdown menu, de tooltip en de slider functioneel gemaakt en worden de kaarten ingekleurd, lijngrafiek_hoofdvisualisatie.js hiermee wordt de lijngrafiek gemaakt die aan de kaarten van de hoofdvisualisatie zijn gelinkt. Met fun_facts.js wordt de laadpagina gemaakt en met afstand_visualisatie.js wordt de tweede visualisatie gemaakt. 
 
-#####De data
+##### De data
 In onderstaande afbeelding is de opbouw van het json. 
 
 De dataset wordt in het javascript bestand hoofdvisualisatie.js opgeslagen. De data van de totalen moet om het goed in de grafiek te plaatsen eerste 
