@@ -1,8 +1,11 @@
 var fun_facts = [ "mensen uit Terschelling het verst moeten reizen naar hun werk, ze leggen gemiddeld 33.8 kilometer af",
 "er het minste mensen werken op Schiermonnikoog, hier werken ongeveer 400 mensen",
 "in Amsterdam de meeste mensen werken, hier werken ruim een half miljoen mensen",
-"mensen uit Zuid-Holland gemiddeld de kortse reis naar werk hebben, zij leggen 11,6 kilometer af",
-"Groningers (provincie) het langst naar hun werk reizen, zij reizen gemiddeld 21,8 kilometer naar hun werk"];
+"mensen uit Zuid-Holland gemiddeld de kortste reis naar werk hebben, zij leggen 11,6 kilometer af",
+"Groningers (provincie) het langst naar hun werk reizen, zij reizen gemiddeld 21,8 kilometer naar hun werk",
+"Nederland ruim vier miljoen forenzen telt",
+"Ameland heeft het hoogste aantal 'thuisbijvers', 78 procent van de bevolking woont en werkt op het eiland",
+"de gemeente Onderbanken heeft het laagste aantal 'thuisblijvers', slechts negen procent werkt en woont in de gemeente"];
 
 var fact_text = d3.select('#fact')
 

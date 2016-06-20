@@ -171,7 +171,7 @@ function colour_map(i, van_of_naar){
 var parseDate = d3.time.format("%Y-%m-%d").parse
 
 // load the data 
-d3.json("data_hoofdvisualisatie_klein.json", function(error, data_json) {
+d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	if (error) {
 		alert("Er is iets misgegaan met het laden van de data")
 		throw new Error("Something went badly wrong!");
@@ -196,13 +196,6 @@ d3.json("data_hoofdvisualisatie_klein.json", function(error, data_json) {
 			j.jaartal = j.jaartal+"-01-01"
 			j.jaartal = parseDate(j.jaartal)
 		});
-		//d.plaats.jaar[2014-2006].plaatsen_van.forEach(function(k) {
-			//if (d.plaats.plaatsnaam == k.p)
-			//{
-				//console.log(k.p +", "+ k.m);
-			//}
-		//});
-		
 		
 		// add the municipalities to the select element
 		select.append("option")
