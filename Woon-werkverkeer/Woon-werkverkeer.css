@@ -1,9 +1,8 @@
-
-
 body{
  font-family: "Gotham"!important;
  background-color:  white!important;
 }
+
 /* loading page */
 #load_page{
 	width: 100%;
@@ -14,7 +13,6 @@ body{
 	text-align: center;
 	font-size: 25px!important;
 }
-
 
 /* head text */
 h2{
@@ -52,7 +50,6 @@ h2{
 }
 
 /* maps */
-
 #svg_naar{
 	position: absolute; 
 	z-index:10; 
@@ -100,7 +97,12 @@ h2{
 	font-weight: normal!important;
 }
 
-
+#explanation_visualisation{
+	width: 300px;
+	position: absolute;
+	top:300px;
+	left: 70px;
+}
 
 /* search box */
 #select{
@@ -125,14 +127,7 @@ h2{
 	top: 250px;" 
 }
 
-#distance{
-	width: 960px;
-	position: absolute;
-	left:150px;
-	top: 1100px;
-  
-  
-}
+
 
 /* linegraph */
 #line_box{
@@ -177,6 +172,20 @@ h2{
 }
 
 /* barchart */
+#distance{
+	width: 960px;
+	position: absolute;
+	left:150px;
+	top: 1100px;
+}
+#distance_title{
+	position: absolute;
+	top:1080px;
+	left: 350px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
 .bar {
   fill: #7fcdbb;
 }

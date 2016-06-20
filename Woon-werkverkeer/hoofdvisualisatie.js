@@ -171,7 +171,7 @@ function colour_map(i, van_of_naar){
 var parseDate = d3.time.format("%Y-%m-%d").parse
 
 // load the data 
-d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
+d3.json("data_hoofdvisualisatie_klein.json", function(error, data_json) {
 	if (error) {
 		alert("Er is iets misgegaan met het laden van de data")
 		throw new Error("Something went badly wrong!");

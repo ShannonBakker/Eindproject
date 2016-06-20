@@ -1,8 +1,8 @@
 function visualisation_distance(){
 // color the map for Terschelling
-colour_map(321,3)
+//colour_map(321,3)
 
-var margin = {top: 50, right: 30, bottom: 120, left: 150},
+var margin = {top: 80, right: 70, bottom: 120, left: 150},
    width = 600 - margin.left - margin.right,
    height = 600 - margin.top - margin.bottom;
 
@@ -45,8 +45,6 @@ x.domain([0, d3.max(data.data, function(d){return  d.afstand})]);
 			.attr("y", 10)
 			.attr("dy", ".35em")
 			
-			
-
 	// append the y axis to the chart
 	chart.append("g")
 		.attr("class", "y axis")
