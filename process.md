@@ -1,28 +1,32 @@
-30-5-2016
-Gewerkt aan idee en proposal in readme geschreven
+# dag 1
+-Gewerkt aan idee en proposal in readme geschreven
 
-31-5-2016
-Stand up over design: suggestie: een kaart waarin je de totalen kunt zien. 
-Gekeken naar de mogelijkheden om ieder jaar een nieuw svg bestand te laden
-Nagedacht over het format waar ik de data in ga zetten. 
-Databestand gezocht voor mensen die inwoner van Nederland zijn en in het buitenland werken. 
-Nagedacht over het design van de visualisaties
-1-6-2016
-Stand-up: Nagedacht over structuur van dataset en bepaald dat het handig is om alles in één json-bestand te plaatsen. 
-Verder nagedacht over datastructuur en code geschreven om csv naar json te plaatsen
-Schetsen gemaakt voor design document en design document verder uitgewerkt
-2-6-2016
-Alle benodigde csv’s gedownload
-Code geschreven om van csv’s een json te maken
-Opstart html pagina gemaakt. 
-3-6-2016
-Fout uit json gehaald, schreef alleen eerste regel
-Code geschreven waarmee Amsterdam kon worden ingekleurd, 
-Problemen met github 
-6-6-2016
-Problemen met github 
-Tooltip aan de kaart toegevoegd
-Kaart zo gemaakt dat hij verandert wanneer je op een plaats klikt
+# dag 2
+-Stand up over design: suggestie: een kaart waarin je de totalen kunt zien. 
+-Gekeken naar de mogelijkheden om ieder jaar een nieuw svg bestand te laden
+-Nagedacht over het format waar ik de data in ga zetten. 
+-Databestand gezocht voor mensen die inwoner van Nederland zijn en in het buitenland werken. 
+-Nagedacht over het design van de visualisaties
+
+# dag 3
+- Stand-up: Nagedacht over structuur van dataset en bepaald dat het handig is om alles in één json-bestand te plaatsen. 
+- Verder nagedacht over datastructuur en code geschreven om csv naar json te plaatsen
+- Schetsen gemaakt voor design document en design document verder uitgewerkt
+
+# dag 4
+- Alle benodigde csv’s gedownload
+- Code geschreven om van csv’s een json te maken
+- Opstart html pagina gemaakt. 
+
+# dag 5
+- Fout uit json gehaald, schreef alleen eerste regel
+- Code geschreven waarmee Amsterdam kon worden ingekleurd, 
+- Problemen met github omdat ik een te groot bestand heb geupload
+
+# dag 6
+- Problemen met github opgelost
+- Tooltip aan de kaart toegevoegd
+- Kaart zo gemaakt dat hij verandert wanneer je op een plaats klikt
 Tweede kaart toegevoegd
 Kaarten aan elkaar gelinkt
 Fout uit json gehaald, plaatsen_van en plaatsen_naar waren hetzelfde
