@@ -26,7 +26,7 @@ function visualisation_distance(){
 		.attr("height", width + margin.top + margin.bottom)
 
 	
-	d3.json("afstanden.json", function(error, data) {
+	d3.json("afstanden.json", function(error, data){
 		if (error) {
 			alert("Er is iets misgegaan met het laden van de data")
 			throw new Error("Something went badly wrong!");
@@ -72,7 +72,5 @@ function visualisation_distance(){
 			.attr("y",  function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")")+17; })
 			.attr("dy", ".35em")
 			.text(function(d) { return d.afstand + ' km'; });
-	
-	
-});
+	});
 }
