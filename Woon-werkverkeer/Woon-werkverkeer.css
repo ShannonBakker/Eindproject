@@ -10,7 +10,7 @@ body{
 	position: absolute;
 	z-index: 100;
 	background-color:  white !important;
-	height:2000px; 
+	height:1600px; 
 	text-align: center;
 	font-size: 25px!important;
 }
@@ -43,15 +43,26 @@ h2{
 #explanation_text{
 	text-align: justify;
 }
+/* source text */
+#source{
+	width: 1200px;
+	position: absolute;
+	top:1550px;
+	left: 70px;
+}
 
 /* maps */
+
 #svg_naar{
 	position: absolute; 
 	z-index:10; 
 	width: 400px; 
 	height: 500px;
 	left:920px; 
-	top: 150px; 
+	top: 150px;	
+}
+#svg_naar path{
+	stroke: #6E6E6E;
 }
 
 #svg_van{
@@ -61,7 +72,9 @@ h2{
 	height: 400px;
 	left:370px; 
 	top: 150px;
-	
+}
+#svg_van path{
+	stroke: #6E6E6E;
 }
 
 #svg_afstand{
@@ -72,15 +85,21 @@ h2{
 	left:770px; 
 	top: 1100px; 
 }
+#svg_afstand path{
+	stroke: #6E6E6E;
+}
 #tooltip{
 	position: absolute;
 	z-index:10;
 	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.2); 
+	background-color: rgba(0, 0, 0, 0.4); 
 	color: #000;
-	color: rgba(0, 0, 0, 1.0);
-	
+	color: rgba(255, 255, 255, 1.0);
 }
+.label{
+	font-weight: normal!important;
+}
+
 
 
 /* search box */
@@ -116,7 +135,6 @@ h2{
 }
 
 /* linegraph */
-
 #line_box{
 	width: 960px;
 	position: absolute;
@@ -158,6 +176,7 @@ h2{
   pointer-events: all;
 }
 
+/* barchart */
 .bar {
   fill: #7fcdbb;
 }
@@ -167,14 +186,9 @@ h2{
 }
 
 .axis {
-  font: 10px sans-serif;
+  font-size: 10px;
 }
 
-.bartext{
-	text-align: left;
-	z-index: 20;
-	color: red;
-}
 
 .axis path,
 .axis line {
