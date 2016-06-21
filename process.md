@@ -1,26 +1,26 @@
 # dag 1
-- Gewerkt aan idee en proposal in readme geschreven
+- Gewerkt aan idee en proposal in README.md geschreven
 
 # dag 2
-- Stand up over design: suggestie: een kaart waarin je de totalen kunt zien. 
+- Stand up over design: suggestie: een kaart waarin je de totalen kunt zien 
 - Gekeken naar de mogelijkheden om ieder jaar een nieuw svg bestand te laden
-- Nagedacht over het format waar ik de data in ga zetten. 
-- Databestand gezocht voor mensen die inwoner van Nederland zijn en in het buitenland werken. 
+- Nagedacht over het format waar ik de data in ga zetten 
+- Databestand gezocht voor mensen die inwoner van Nederland zijn en in het buitenland werken
 - Nagedacht over het design van de visualisaties
 
 # dag 3
-- Stand-up: Nagedacht over structuur van dataset en bepaald dat het handig is om alles in één json-bestand te plaatsen. 
+- Stand-up: Nagedacht over structuur van dataset en bepaald dat het handig is om alles in één json-bestand te plaatsen
 - Verder nagedacht over datastructuur en code geschreven om csv naar json te plaatsen
 - Schetsen gemaakt voor design document en design document verder uitgewerkt
 
 # dag 4
 - Alle benodigde csv’s gedownload
 - Code geschreven om van csv’s een json te maken
-- Opstart html pagina gemaakt. 
+- Opstart html pagina gemaakt
 
 # dag 5
-- Fout uit json gehaald, schreef alleen eerste regel
-- Code geschreven waarmee Amsterdam kon worden ingekleurd, 
+- Fout uit json gehaald, het script schreef alleen de eerste plaats 
+- Code geschreven waarmee Amsterdam kon worden ingekleurd
 - Problemen met github omdat ik een te groot bestand heb geupload
 
 # dag 6
