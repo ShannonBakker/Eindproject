@@ -37,7 +37,8 @@ De tweede visualisatie wordt gemaakt met de functie visualisation_distance in af
 In het design document had ik het plan om vier losse visualisaties te maken. Dit bleek te ambitieus voor vier weken, om deze reden zijn deelvisualisatie 1 en 3 uit het design document niet uitgevoerd. Ik heb ervoor gekozen voor deelvisualisatie 2, omdat uit de standups bleek dat men deze het meest interessant vond. Ook ikzelf vond dit het beste idee van de drie deelvisualisaties. 
 
 #####Selecteer een plaats
-Qua visueel design is verder alleen de zoekbalk veranderd. In plaats van een zoekbalk waar je exact de juiste plaatsnaam moet intypen is gekozen voor een dropdown menu, waar je ook in kan zoeken. Dit is gemakkelijker voor de gebruiker en minder foutgevoelig. 
+Qua visueel design is verder alleen de zoekbalk veranderd. In plaats van een zoekbalk waar je exact de juiste plaatsnaam moet intypen is gekozen voor een dropdown menu, waar je ook in kan zoeken. Dit is gemakkelijker voor de gebruiker en minder foutgevoelig. Met dit dropdown menu was er nog wel het probleem dat de geselecteerde plaats in de dropdown niet wijzigt wanneer er op de kaart wordt geklikt. De enige oplossing hiervoor was het totaal verwijderen van de dropdown en hem opnieuw aanmaken. Dit maakte het programma trager en het lost geen erg groot probleem op. Om deze reden heb ik dit niet zo gedaan. 
+Er is om deze reden wel een kies-button met een on click functie gemaakt. Wanneer je alleen een onchange op de dropdown hebt en de kaart hebt verandert door erop te klikken kan je niet naar de geselecteerde plaats in de dropdown terug zonder eerst op een andere plaats te klikken. De kies-button lost dit op. 
 
 ##### Plaatsnamen als id
 Verder zijn er tijdens het ontwikkelproces natuurlijk wel een aantal niet geanticipeerde problemen tevoorschijn gekomen. Het eerste probleem was dat een id geen spatie mag hebben en veel plaatsnamen dit wel hebben. Dit is voor de svg met de hand opgelost. De plaatsnamen in de dataset  moesten wel corresponderen aan de id’s. Hierdoor zijn de plaatsnamen in de functie colour_map ontdaan van hun spaties. Andere rare tekens zijn zowel in de svg als de dataset met de hand verwijdert. 
@@ -51,5 +52,7 @@ De functies in hoofdvisualisatie.js namen in eerste instantie veel meer variabel
 ##### Missende data
 Er is relatief veel data dat mist. Ik heb hier het CBS over gemaild en de voornaamste reden voor de missende data is de anonimisering van de gegevens. Om deze reden is alle data ook op honderdtallen afgerond. Een andere belangrijke reden is gemeentelijke herindelingen. Ik gebruik data die de gemeentes van 2014 hanteert, dit betekent dat als een gemeente een andere indeling had in een jaar voor 2014, de data voor dat jaar mist. In eerste instantie had ik ervoor gekozen om de missende data en de datapunten met een waarde 0 een verschillende kleur te geven in de kaarten. Dit zorgde voor chaotische kaarten en bovendien dachten veel gebruikers dat op de plaatsen met de waarde 0 , de waarde groter was dan 0. Om deze reden hebben gemeentes met 0 als waarde of missende data beide een grijze kleur. 
 
+##### Rozendaal klopt niet
+Dankzij de visualisatie heb ik een fout ontdekt in de oorspronkelijke data. Volgens het CBS reisden er in 2007 5300 mensen vanuit Rozendaal naar een andere gemeente voor werk. Het probleem is dat Rozendaal slechts 1500 inwoners heeft, waardoor de data nooit kan kloppen. Ik heb besloten deze fout toch te behouden, aangezien ik de data van het CBS visualiseer en ik er niet achter kan komen wat de juiste data was van dat jaar. Ik verwijs in mijn visualisatie ook naar de brontabel. 
 
- 
+
