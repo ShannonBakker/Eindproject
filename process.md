@@ -96,3 +96,6 @@
 - Titel aan visualisatie 2 toegevoegd
 - Uitleg bij hoofdvisualisatie gevoegd
 - Begonnen met verslag
+
+# dag 17
+- kies button verwijdert, en dropdown breder
