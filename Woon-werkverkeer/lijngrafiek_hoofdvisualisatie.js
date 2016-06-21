@@ -1,5 +1,5 @@
-function make_linegraph(){
-	
+function make_linegraph(place){
+	console.log(place);
 	// set the linegraph
 	var bisectDate = d3.bisector(function(d) { return d.jaartal; }).left
 	var yearNameFormat = d3.time.format("%Y")
@@ -110,7 +110,7 @@ function make_linegraph(){
 			.attr("r", 3);
 		dot.append("text")
 			.attr("x", 9)
-			.attr("y", -10)
+			.attr("y", 10)
 			.attr("dy", ".35em");
 	  
 		var dot2 = lineChart.append("g")
@@ -120,7 +120,7 @@ function make_linegraph(){
 			.attr("r", 3);
 		dot2.append("text")
 			.attr("x", 9)
-			.attr("y", 10)
+			.attr("y", -10)
 			.attr("dy", ".35em");
 
 		// append the overlay, necessary for the tooltip

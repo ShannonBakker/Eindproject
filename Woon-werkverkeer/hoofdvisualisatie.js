@@ -54,7 +54,7 @@ function select_municipality(){
 	place = x.options[x.selectedIndex].value;
 	colour_map(place,2, year);
 	colour_map(place,1, year);
-	make_linegraph();	
+	make_linegraph(place);	
 }
 
 // add the tooltip to the maps
@@ -149,7 +149,7 @@ function colour_map(i, van_of_naar, year){
 						if(data.plaatsen[j].plaats.plaatsnaam.replace(/\s/g,'') == place_name){
 							colour_map(j, 1, year);
 							colour_map(j, 2, year);
-							make_linegraph();
+							make_linegraph(place);
 						};
 					};
 				};
@@ -214,9 +214,9 @@ d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	year = 2014;
 	tooltip.style("visibility", "hidden");
 	place = 15;
-	make_linegraph();
 	colour_map(place,1,year);
 	colour_map(place,2,year);
+	make_linegraph(place);
 	visualisation_distance();
 	d3.select("#load_page").remove();	
 	

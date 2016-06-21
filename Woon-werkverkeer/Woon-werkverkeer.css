@@ -136,6 +136,7 @@ h2{
 #line_box{
 	width: 960px;
 	position: absolute;
+	z-index: 20;
 	left:240px;
 	top: 570px;
 }
@@ -164,6 +165,7 @@ h2{
 .background {
   fill: none;
   pointer-events: all;
+  z-index:20;
 }
 
 /* barchart */
