@@ -92,11 +92,13 @@
 - Middentekst geschreven
 
 # dag 16
-- process book op github geplaatst
+- Process book op github geplaatst
 - Titel aan visualisatie 2 toegevoegd
 - Uitleg bij hoofdvisualisatie gevoegd
 - Begonnen met verslag
 
 # dag 17
-- kies button verwijdert, en dropdown breder
-- onbekend en buitenland uit de dataset verwijdert, er is namelijk geen data voor onbekend en buitenland en het is niet aan te klikken.
+- Kies button verwijdert, en dropdown breder
+- Onbekend en buitenland uit de dataset verwijdert, er is namelijk geen data voor onbekend en buitenland en het is niet aan te klikken
+- Kies button weer toegevoegd, reden: problemen met selecteren al geselecteerde plaats na wijzigingen in kaart
+- Aan verslag gewerkt
