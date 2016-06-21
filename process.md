@@ -102,3 +102,4 @@
 - Onbekend en buitenland uit de dataset verwijdert, er is namelijk geen data voor onbekend en buitenland en het is niet aan te klikken
 - Kies button weer toegevoegd, reden: problemen met selecteren al geselecteerde plaats na wijzigingen in kaart
 - Aan verslag gewerkt
+- SVG opgeschoond
