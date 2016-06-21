@@ -103,3 +103,4 @@
 - Kies button weer toegevoegd, reden: problemen met selecteren al geselecteerde plaats na wijzigingen in kaart
 - Aan verslag gewerkt
 - SVG opgeschoond
+- Code opgeschoond 
