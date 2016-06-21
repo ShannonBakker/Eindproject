@@ -1,9 +1,9 @@
 var data;
-var place;
 var year; 
 var previous_van;
 var previous_naar;
 var previous_afstand;
+var place;
 
 // set the time slider 
 d3.select('#slider').call(d3.slider().axis(true).value(2014).min(2006).max(2014).step(1).on("slide", function(evt, value) {
@@ -28,12 +28,12 @@ var colour_scales = d3.scale.threshold()
 
 // set the tooltip
 var tooltip = d3.select("body").append("div")
-	.attr('id', 'tooltip')
+	.attr('id', 'tooltip');
 	
 
 // add the legend
 //inspiration from http://multimedia.tijd.be/commute/js/pendelgem.js
-var svg_legend = d3.select("#svg_van")
+var svg_legend = d3.select("#svg_van");
 var legend_size = 200;
 svg_legend.append("g")
     .attr("class", "legend")
@@ -48,12 +48,12 @@ var legend = d3.legend.color()
 svg_legend.select(".legend")
    .call(legend);
 
-// function off the dropdown menu
-// inspiration http://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
+//function off the dropdown menu
+//inspiration http://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
 function select_municipality(){
 	var x = document.getElementById("choose_city");
-	place = x.options[x.selectedIndex].value
-	make_linegraph(place)
+	place = x.options[x.selectedIndex].value;
+	make_linegraph(place);
 	colour_map(place,2);
 	colour_map(place,1);	
 }
@@ -81,7 +81,6 @@ function change_border(svg, previous){
 // color the map
 function colour_map(i, van_of_naar){
 	
-	place = i;
 	// select the map and place that have to be coloured
 	alle_plaatsen = [];
 	if (van_of_naar == 1){
@@ -148,6 +147,7 @@ function colour_map(i, van_of_naar){
 					// make use of recursion to recolor the map when one clicks on a municipality
 					for (i = 0; i < data.plaatsen.length; i++){
 						if(data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,'') == place_name){
+							place = i
 							make_linegraph(i);
 							colour_map(i, 1);
 							colour_map(i, 2);
@@ -171,7 +171,7 @@ function colour_map(i, van_of_naar){
 var parseDate = d3.time.format("%Y-%m-%d").parse
 
 // load the data 
-d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
+d3.json("data_hoofdvisualisatie_klein.json", function(error, data_json) {
 	if (error) {
 		alert("Er is iets misgegaan met het laden van de data")
 		throw new Error("Something went badly wrong!");
@@ -182,8 +182,7 @@ d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	select.attr("class","selectpicker")
 		.attr("id","choose_city")
 		.attr("data-live-search","true")
-		.style("display", "none")
-		.style("width", "350px")
+
 	i=0
 	data_json.plaatsen.forEach(function(d) {
 		d.plaats.totalen.totalen_van.forEach(function(j) {
@@ -209,7 +208,6 @@ d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	position: 'absolute',
 	left: '-30px',
 	top: '50px',
-	size: 4
 	});
 
 	data = data_json
@@ -220,4 +218,5 @@ d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	colour_map(0,2);
 	visualisation_distance();
 	d3.select("#load_page").remove();	
+	
 });

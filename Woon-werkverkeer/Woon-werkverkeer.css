@@ -1,6 +1,5 @@
 body{
- font-family: "Gotham"!important;
- background-color:  white!important;
+	font-family: Gotham!important;
 }
 
 /* loading page */
@@ -8,10 +7,10 @@ body{
 	width: 100%;
 	position: absolute;
 	z-index: 100;
-	background-color:  white !important;
+	background-color: white;
 	height:1600px; 
 	text-align: center;
-	font-size: 25px!important;
+	font-size: 25px;
 }
 
 /* head text */
@@ -31,17 +30,19 @@ h2{
 #intro_text{
 	text-align: center;
 }
+
 /* middle text */
-#explanation{
+#highlights{
 	width: 1200px;
 	position: absolute;
 	top:950px;
 	left: 70px;
 }
-#explanation_text{
+#highlights_text{
 	text-align: justify;
 }
-/* source text */
+
+/* source */
 #source{
 	width: 1200px;
 	position: absolute;
@@ -58,20 +59,15 @@ h2{
 	left:920px; 
 	top: 150px;	
 }
-#svg_naar path{
-	stroke: #6E6E6E;
-}
+
 
 #svg_van{
 	position: absolute; 
-	z-index:10; 
+	z-index:1; 
 	width: 800px; 
 	height: 410px;
 	left:370px; 
 	top: 140px;
-}
-#svg_van path{
-	stroke: #6E6E6E;
 }
 
 #svg_afstand{
@@ -82,9 +78,12 @@ h2{
 	left:770px; 
 	top: 1100px; 
 }
-#svg_afstand path{
+
+.map_netherlands path{
 	stroke: #6E6E6E;
+	stroke-width: 0.47991;	
 }
+
 #tooltip{
 	position: absolute;
 	z-index:10;
@@ -97,13 +96,13 @@ h2{
 	font-weight: normal!important;
 }
 
-#explanation_visualisation{
+#explanation{
 	width: 250px;
 	position: absolute;
 	top:345px;
 	left: 100px;
 }
-#explanation_visualisation_text{
+#explanation_text{
 	text-align: justify;
 }
 
@@ -114,23 +113,24 @@ h2{
 	position:absolute;
 	height: 30px;
 }
-#kiest_button{
+#choice_button{
 	position: absolute;  
-	width: 100px; 
+	width: 100px;
+	z-index: 10;
 	top:160px; 
 	height: 35px;
 	left:320px;
 }
+
 /* time slider */
 #slider{
 	position: absolute; 
-	width: 320px; 
+	width: 320px;
+	z-index: 10;
 	height: 10px;
 	left:100px; 
 	top: 250px;" 
 }
-
-
 
 /* linegraph */
 #line_box{
@@ -138,16 +138,12 @@ h2{
 	position: absolute;
 	left:240px;
 	top: 570px;
-  
-  
 }
-
 
 .axis path {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
-  
 }
 
 .y_axis_text{
@@ -196,7 +192,6 @@ h2{
 .axis {
   font-size: 10px;
 }
-
 
 .axis path,
 .axis line {

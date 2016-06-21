@@ -1,6 +1,6 @@
 function visualisation_distance(){
 	// color the map for Terschelling
-	colour_map(321,3)
+	//colour_map(321,3)
 
 	var margin = {top: 80, right: 70, bottom: 120, left: 150},
 		width = 600 - margin.left - margin.right,
