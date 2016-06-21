@@ -99,3 +99,4 @@
 
 # dag 17
 - kies button verwijdert, en dropdown breder
+- onbekend en buitenland uit de dataset verwijdert, er is namelijk geen data voor onbekend en buitenland en het is niet aan te klikken.
