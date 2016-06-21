@@ -7,9 +7,9 @@ var fun_facts = [ "mensen uit Terschelling het verst moeten reizen naar hun werk
 "Ameland heeft het hoogste aantal 'thuisbijvers', 78 procent van de bevolking woont en werkt op het eiland",
 "de gemeente Onderbanken heeft het laagste aantal 'thuisblijvers', slechts negen procent werkt en woont in de gemeente"];
 
-var fact_text = d3.select('#fact')
+var fact_text = d3.select('#fact');
 
+// choose a random fact from the list of facts
 var fun_fact = fun_facts[Math.floor(Math.random()*fun_facts.length)];
-
 fact_text.append("text")
-	.text(fun_fact)
+	.text(fun_fact);

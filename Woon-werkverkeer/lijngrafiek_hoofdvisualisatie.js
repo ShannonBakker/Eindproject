@@ -1,4 +1,4 @@
-function make_linegraph(place_number){
+function make_linegraph(){
 	
 	// set the linegraph
 	var bisectDate = d3.bisector(function(d) { return d.jaartal; }).left
@@ -28,7 +28,7 @@ function make_linegraph(place_number){
 	
 	missings = 0;
 	
-	data.plaatsen[place_number].plaats.totalen.totalen_van.forEach(function(item){
+	data.plaatsen[place].plaats.totalen.totalen_van.forEach(function(item){
 		if (isNaN(item.totaal_jaar)==true){
 			missings+=1
 		}
@@ -45,10 +45,10 @@ function make_linegraph(place_number){
 	
 	if (missings ==0){
 		//determine the domain for the y axis
-		var xDomain = x.domain(d3.extent(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.jaartal; }));
+		var xDomain = x.domain(d3.extent(data.plaatsen[place].plaats.totalen.totalen_van, function(d) { return d.jaartal; }));
 		var max =10;
-		var max_van = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_van, function(d) { return d.totaal_jaar; })
-		var max_naar = d3.max(data.plaatsen[place_number].plaats.totalen.totalen_naar, function(d) { return d.totaal_jaar; })
+		var max_van = d3.max(data.plaatsen[place].plaats.totalen.totalen_van, function(d) { return d.totaal_jaar; })
+		var max_naar = d3.max(data.plaatsen[place].plaats.totalen.totalen_naar, function(d) { return d.totaal_jaar; })
 		if (Number(max_van)>Number(max_naar)) {
 			max = max_van;
 		}
@@ -76,7 +76,7 @@ function make_linegraph(place_number){
 	
 		// make the lines
 		lineChart.append("path")
-			.datum(data.plaatsen[place_number].plaats.totalen.totalen_van)
+			.datum(data.plaatsen[place].plaats.totalen.totalen_van)
 			.attr("class", "line_van")
 			.attr("y", 100)
 			.attr("dy", ".75em")
@@ -86,7 +86,7 @@ function make_linegraph(place_number){
 		
 	
 		lineChart.append("path")
-			.datum(data.plaatsen[place_number].plaats.totalen.totalen_naar)
+			.datum(data.plaatsen[place].plaats.totalen.totalen_naar)
 			.attr("class", "line_naar")
 			.attr("y", 100)
 			.attr("dy", ".75em")
@@ -100,7 +100,7 @@ function make_linegraph(place_number){
 			.attr("y", 0)
 			.attr("text-anchor", "end")  
 			.style("font-size", "17px")  
-			.text("Totaal van en naar "+data.plaatsen[place_number].plaats.plaatsnaam);
+			.text("Totaal van en naar "+data.plaatsen[place].plaats.plaatsnaam);
 
 		// append the dots 
 		var dot = lineChart.append("g")
@@ -148,7 +148,7 @@ function make_linegraph(place_number){
 		// inspiration from http://bl.ocks.org/mbostock/3902569
 		function mousemove() {
 			var xinverterd = x.invert(d3.mouse(this)[0]),
-				together = data.plaatsen[place_number].plaats.totalen.totalen_naar
+				together = data.plaatsen[place].plaats.totalen.totalen_naar
 				i = bisectDate(together, xinverterd, 1),
 				d0 = together[i - 1],
 				d1 = together[i],
@@ -158,7 +158,7 @@ function make_linegraph(place_number){
 			line.attr("transform", "translate(" + x(d.jaartal) + "," + y(d.totaal_jaar) + ")");
 	
 			var xinverterd = x.invert(d3.mouse(this)[0]),
-				together = data.plaatsen[place_number].plaats.totalen.totalen_van
+				together = data.plaatsen[place].plaats.totalen.totalen_van
 				i = bisectDate(together, xinverterd, 1),
 				d0 = together[i - 1],
 				d1 = together[i],

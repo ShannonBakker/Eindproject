@@ -8,8 +8,8 @@ var place;
 // set the time slider 
 d3.select('#slider').call(d3.slider().axis(true).value(2014).min(2006).max(2014).step(1).on("slide", function(evt, value) {
 		year=value;
-		colour_map(place,1);
-		colour_map(place,2);
+		colour_map(place,1, year);
+		colour_map(place,2, year);
 }));
 
 // set the color scale
@@ -30,10 +30,9 @@ var colour_scales = d3.scale.threshold()
 var tooltip = d3.select("body").append("div")
 	.attr('id', 'tooltip');
 	
-
 // add the legend
 //inspiration from http://multimedia.tijd.be/commute/js/pendelgem.js
-var svg_legend = d3.select("#svg_van");
+var svg_legend = d3.select("#svg_van")
 var legend_size = 200;
 svg_legend.append("g")
     .attr("class", "legend")
@@ -53,9 +52,9 @@ svg_legend.select(".legend")
 function select_municipality(){
 	var x = document.getElementById("choose_city");
 	place = x.options[x.selectedIndex].value;
-	make_linegraph(place);
-	colour_map(place,2);
-	colour_map(place,1);	
+	colour_map(place,2, year);
+	colour_map(place,1, year);
+	make_linegraph();	
 }
 
 // add the tooltip to the maps
@@ -79,7 +78,8 @@ function change_border(svg, previous){
 }
 
 // color the map
-function colour_map(i, van_of_naar){
+function colour_map(i, van_of_naar, year){
+	place = i;
 	
 	// select the map and place that have to be coloured
 	alle_plaatsen = [];
@@ -145,12 +145,11 @@ function colour_map(i, van_of_naar){
 					tooltip.text("Je hebt voor "+ place_name_with_spaces + " gekozen")
 			
 					// make use of recursion to recolor the map when one clicks on a municipality
-					for (i = 0; i < data.plaatsen.length; i++){
-						if(data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,'') == place_name){
-							place = i
-							make_linegraph(i);
-							colour_map(i, 1);
-							colour_map(i, 2);
+					for (var j = 0; j < data.plaatsen.length; j++){
+						if(data.plaatsen[j].plaats.plaatsnaam.replace(/\s/g,'') == place_name){
+							colour_map(j, 1, year);
+							colour_map(j, 2, year);
+							make_linegraph();
 						};
 					};
 				};
@@ -168,39 +167,40 @@ function colour_map(i, van_of_naar){
 
 
 // parsedate function, to get the year ready for the linegraph
-var parseDate = d3.time.format("%Y-%m-%d").parse
+var parseDate = d3.time.format("%Y-%m-%d").parse;
 
 // load the data 
-d3.json("data_hoofdvisualisatie_klein.json", function(error, data_json) {
+d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	if (error) {
 		alert("Er is iets misgegaan met het laden van de data")
 		throw new Error("Something went badly wrong!");
-	}
+	};
+	
 	// make a select element for the municipalities search box http://thematicmapping.org/playground/d3/d3.slider/
 	d3.select("#select").append("select")
 	var select = d3.select("select")
 	select.attr("class","selectpicker")
 		.attr("id","choose_city")
-		.attr("data-live-search","true")
+		.attr("data-live-search","true");
 
-	i=0
+	i=0;
 	data_json.plaatsen.forEach(function(d) {
 		d.plaats.totalen.totalen_van.forEach(function(j) {
-			j.totaal_jaar = j.totaal_jaar*1000
-			j.jaartal = j.jaartal+"-01-01"
-			j.jaartal = parseDate(j.jaartal)
+			j.totaal_jaar = j.totaal_jaar*1000;
+			j.jaartal = j.jaartal+"-01-01";
+			j.jaartal = parseDate(j.jaartal);
 		});
 			d.plaats.totalen.totalen_naar.forEach(function(j) {
-			j.totaal_jaar = j.totaal_jaar*1000
-			j.jaartal = j.jaartal+"-01-01"
-			j.jaartal = parseDate(j.jaartal)
+			j.totaal_jaar = j.totaal_jaar*1000;
+			j.jaartal = j.jaartal+"-01-01";
+			j.jaartal = parseDate(j.jaartal);
 		});
 		
 		// add the municipalities to the select element
 		select.append("option")
 			.text(d.plaats.plaatsnaam)
-			.attr("value",i)
-		i+=1
+			.attr("value",i);
+		i+=1;
 	});
 	
 	// inspiration from https://silviomoreto.github.io/bootstrap-select/
@@ -210,12 +210,13 @@ d3.json("data_hoofdvisualisatie_klein.json", function(error, data_json) {
 	top: '50px',
 	});
 
-	data = data_json
-	year = 2014
-	tooltip.style("visibility", "hidden")
-	make_linegraph(0)
-	colour_map(0,1);
-	colour_map(0,2);
+	data = data_json;
+	year = 2014;
+	tooltip.style("visibility", "hidden");
+	place = 15;
+	make_linegraph();
+	colour_map(place,1,year);
+	colour_map(place,2,year);
 	visualisation_distance();
 	d3.select("#load_page").remove();	
 	
