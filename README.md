@@ -5,7 +5,7 @@ Het doel van de visualisatie is de gebruiker inzicht geven in het woon-werkverke
 ####Beschrijving visualisatie
 De pagina bestaat uit twee visualisaties. De belangrijkste visualisatie staat bovenaan de pagina. Deze visualisatie bestaat uit twee kaarten en een lijngrafiek. De kaarten zijn ingekleurd op basis van het aantal mensen dat voor zijn werk van of naar een gekozen plaats reist. Wanneer de pagina wordt geladen is deze plaats standaard Amsterdam. Vervolgens kan men met een dropdown-menu of door te klikken op één van de kaarten een plaats selecteren. Ook kan het jaartal met behulp van een slider worden veranderd. Gekoppeld aan deze kaarten zit ook een lijngrafiek. Deze laat de ontwikkeling over tijd zien van het aantal mensen dat naar een gemeente gaat en het aantal mensen dat uit de gemeente vertrekt. Na de hoofdvisualisatie volgt een stukje tekst met interessante informatie uit de visualisatie. De tweede visualisatie staat hieronder en deze laat de top tien van gemeentes zien, waaruit gemiddeld het verst wordt gereisd. De visualisatie bestaat uit een liggende barchart en een kaart. Op de barchart zie je de gemeentes en de gemiddelde reisafstand, op de kaart zie je waar de mensen uit deze gemeente naartoe reizen.
 
-De visualisatie zie er als volgt uit:
+De visualisatie ziet er als volgt uit:
 
 ######Laadpagina:
 Waneer je de pagina opent zie je eerst een laadpagina en een feitje over het Woon-werkverkeer in Nederland.
