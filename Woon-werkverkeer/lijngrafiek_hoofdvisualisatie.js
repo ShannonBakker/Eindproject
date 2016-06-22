@@ -1,5 +1,4 @@
 function make_linegraph(place){
-	console.log(place);
 	// set the linegraph
 	var bisectDate = d3.bisector(function(d) { return d.jaartal; }).left
 	var yearNameFormat = d3.time.format("%Y")
