@@ -104,3 +104,8 @@
 - Aan verslag gewerkt
 - SVG opgeschoond
 - Code opgeschoond 
+
+# dag 18
+- Readme bijgewerkt
+- Verslag visueel design gedaan
+- Lisence file toegevoegd
