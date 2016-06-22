@@ -8,27 +8,32 @@ De pagina bestaat uit twee visualisaties. De belangrijkste visualisatie, hier ve
 De visualisatie zie er als volgt uit:
 
 ######Laadpagina:
-Waneer je de pagina opent zie je eerst een laadpagina en een feitje over het Woon-werkverkeer in Nederland
+Waneer je de pagina opent zie je eerst een laadpagina en een feitje over het Woon-werkverkeer in Nederland.
 ![](doc/laadpagina.png)
+
 
 ######Beeld na de laadpagina:
 Dit zie je wanneer de data is geladen, door op de kaart te klikken of door de dropdown te gebruiken kan je een plaats selecteren. Met de slider kan je een jaar selecteren. 
 ![](doc/homepage.png)
 
+
 ######Werking dropdown:
 In de dropdown kan je ook zoeken.
 ![](doc/zoekbalk.png)
 
+
 ######Lijngrafiek gekoppeld aan kaarten:
-Wanneer je over de lijngrafiek gaat met je muis zie je de data van die locatie
+Wanneer je over de lijngrafiek gaat met je muis zie je de data van die locatie.
 ![](doc/lijngrafiek.png)
 
+
 ######Tweede visualisatie:
-De tweede visualisatie laat de top tien van gemeentes zien, van waaruit er gemiddeld het verst wordt gereisd.
+De tweede visualisatie laat de top tien van gemeentes zien, van waaruit er gemiddeld het verst wordt gereisd. Wanneer je over een gemeente gaat zie je de kaart voor die gemeente.
 ![](doc/tweede_visualisatie.png)
 
+
 ######Complete visualisatie:
-Uitgezoomd ziet de visualisatie er als volgt uit.
+Uitgezoomd ziet de visualisatie er als volgt uit:
 
 ![](doc/complete_pagina.png)
 
