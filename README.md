@@ -20,6 +20,7 @@ Tweede visualisatie:
 ![](doc/tweede_visualisatie.png)
 
 Complete visualisatie uitgeprint:
+
 ![](doc/complete_pagina.png)
 
 #####Bronnen: 
