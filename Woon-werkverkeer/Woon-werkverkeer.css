@@ -47,6 +47,7 @@ h2{
 	width: 1200px;
 	position: absolute;
 	top:1550px;
+	z-index: 20;
 	left: 70px;
 }
 
