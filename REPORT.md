@@ -3,6 +3,21 @@
 De visualisatie gaat over het woon-werkverkeer in Nederland. De pagina bestaat uit twee visualisaties. De belangrijkste visualisatie, hier verder hoofdvisualisatie genoemd, staat bovenaan de pagina. Deze visualisatie bestaat uit twee kaarten en een lijngrafiek. De kaarten zijn ingekleurd op basis van het aantal mensen dat voor zijn werk van of naar een gekozen plaats reist. Wanneer de pagina wordt geladen is deze plaats standaard Amsterdam. Vervolgens kan men met een dropdown-menu of door te klikken op één van de kaarten een plaats selecteren. Ook kan het jaartal met behulp van een slider worden veranderd. Gekoppeld aan deze kaarten zit ook een lijngrafiek. Deze laat de ontwikkeling over tijd zien van het aantal mensen dat naar een gemeente gaat en het aantal mensen dat uit de gemeente vertrekt. 
 Na de hoofdvisualisatie volgt een stukje tekst met interessante informatie uit de visualisatie. De tweede visualisatie staat hieronder en deze laat de top tien van gemeentes zien waaruit gemiddeld het verst wordt gereisd. De visualisatie bestaat uit een liggende barchart en een kaart. Op de barchart zie je de gemeentes en de gemiddelde reisafstand, op de kaart zie je waar de mensen uit deze gemeente naartoe reizen. 
 
+###Visueel design
+In de volgende paragraaf bespreek ik een aantal keuzes van mijn visueel design. 
+
+Twee kaarten
+In de hoofdvisualisatie is er een kaart ‘van’ en een kaart ‘naar’. Deze twee kaarten staan naast elkaar en zie je dus altijd tegelijk. Het was ook mogelijk geweest om een button te maken waarmee je één van de twee kaarten kan selecteren. Ik heb hier niet voor gekozen, omdat ik in mijn visualisatie de nadruk wilde leggen op het verschil tussen ‘van’ en ‘naar’. Zeker bij grotere steden is dit verschil duidelijk te zien. Dit verschil was lastiger te zien geweest wanneer de twee kaarten niet naast elkaar hadden gestaan. 
+
+Kleurenschema kaart
+Ik wilde een neutraal kleurenschema voor de kaart aangezien, meer of minder woon-werkverkeer niet per sé positief of negatief is. Het kleurenschema dat ik heb gekozen is geel/blauw. Dit schema is neutraal, de verschillen tussen plaatsen zijn duidelijk te zien en het schema ziet er aantrekkelijk uit. 
+
+Lijn lijngrafiek
+Wanneer je met de muis over de lijngrafiek van de hoofdvisualisatie hovert zie je data van de plaats waar de muis is door middel van een balletje en tekst. Het jaartal dat bij deze data hoort zie je door middel van een gestippelde lijn naar de x-as. Ik heb besloten om deze lijn toe te voegen, omdat het zonder lijn niet duidelijk is welk jaar de data over gaat. Het jaartal aan de tekst toevoegen was ook geen optie, aangezien er altijd twee tekstjes te zien zijn en er dan dus ook altijd twee keer hetzelfde jaartal te zien zou zijn.  
+
+Liggende barchart
+In de tweede hoofdvisualisatie is een liggende barchart. Ik heb voor een liggende barchart en niet voor een staande barchart gekozen, omdat ik een top tien visualiseer. In een liggende barchart zie je heel snel de bovenste balk, en in de top tien is dit ook plaats één uit de top tien. 
+
 
 ###Technisch design
 De visualisatie staat in een html-pagina, een css-pagina, twee datasets in json en meerdere javascript bestanden. Dit zijn: 
