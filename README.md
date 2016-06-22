@@ -4,6 +4,7 @@ Het doel van de visualisatie is de gebruiker inzicht geven in het woon-werkverke
 
 De visualisatie ziet er als volgt uit:
 Laadpagina:
+![](doc/laadpagina.png)
 
 Beeld na de laadpagina:
 
