@@ -4,31 +4,31 @@ Het doel van de visualisatie is de gebruiker inzicht geven in het woon-werkverke
 
 De visualisatie ziet er als volgt uit:
 
-Laadpagina:
+######Laadpagina:
 ![](doc/laadpagina.png)
 
-Beeld na de laadpagina:
+######Beeld na de laadpagina:
 ![](doc/homepage.png)
 
-Werking dropdown:
+######Werking dropdown:
 ![](doc/zoekbalk.png)
 
-Lijngrafiek gekoppeld aan kaarten:
+######Lijngrafiek gekoppeld aan kaarten:
 ![](doc/lijngrafiek.png)
 
-Tweede visualisatie:
+######Tweede visualisatie:
 ![](doc/tweede_visualisatie.png)
 
-Complete visualisatie uitgeprint:
+######Complete visualisatie uitgeprint:
 
 ![](doc/complete_pagina.png)
 
-#####Bronnen: 
+####Bronnen: 
 De d3 library en d3 tip
 Jquery
 Bootstrap en bootstrap-select
 
-#####Licentie:
+####Licentie:
 Copyright (c) 2016 Shannon Bakker.
 
 
