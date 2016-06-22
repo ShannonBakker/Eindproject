@@ -5,7 +5,7 @@ Het doel van de visualisatie is de gebruiker inzicht geven in het woon-werkverke
 De visualisatie werkt als volgt:
 
 ######Laadpagina:
-Waneer jet de pagina opent zie je eerst een laadpagina en een feitje over het Woon-werkverkeer in Nederland
+Waneer je de pagina opent zie je eerst een laadpagina en een feitje over het Woon-werkverkeer in Nederland
 ![](doc/laadpagina.png)
 
 ######Beeld na de laadpagina:
@@ -24,8 +24,9 @@ Wanneer je over de lijngrafiek gaat met je muis zie je de data van die locatie
 De tweede visualisatie laat de top tien van gemeentes zien, van waaruit er gemiddeld het verst wordt gereisd.
 ![](doc/tweede_visualisatie.png)
 
-######Complete visualisatie uitgeprint:
+######Complete visualisatie:
 Uitgezoomd ziet de visualisatie er als volgt uit.
+
 ![](doc/complete_pagina.png)
 
 ####Bronnen: 
