@@ -6,16 +6,16 @@ Na de hoofdvisualisatie volgt een stukje tekst met interessante informatie uit d
 ###Visueel design
 In de volgende paragraaf bespreek ik een aantal keuzes van mijn visueel design. 
 
-Twee kaarten
+#####Twee kaarten
 In de hoofdvisualisatie is er een kaart ‘van’ en een kaart ‘naar’. Deze twee kaarten staan naast elkaar en zie je dus altijd tegelijk. Het was ook mogelijk geweest om een button te maken waarmee je één van de twee kaarten kan selecteren. Ik heb hier niet voor gekozen, omdat ik in mijn visualisatie de nadruk wilde leggen op het verschil tussen ‘van’ en ‘naar’. Zeker bij grotere steden is dit verschil duidelijk te zien. Dit verschil was lastiger te zien geweest wanneer de twee kaarten niet naast elkaar hadden gestaan. 
 
-Kleurenschema kaart
+#####Kleurenschema kaart
 Ik wilde een neutraal kleurenschema voor de kaart aangezien, meer of minder woon-werkverkeer niet per sé positief of negatief is. Het kleurenschema dat ik heb gekozen is geel/blauw. Dit schema is neutraal, de verschillen tussen plaatsen zijn duidelijk te zien en het schema ziet er aantrekkelijk uit. 
 
-Lijn lijngrafiek
+#####Lijn lijngrafiek
 Wanneer je met de muis over de lijngrafiek van de hoofdvisualisatie hovert zie je data van de plaats waar de muis is door middel van een balletje en tekst. Het jaartal dat bij deze data hoort zie je door middel van een gestippelde lijn naar de x-as. Ik heb besloten om deze lijn toe te voegen, omdat het zonder lijn niet duidelijk is welk jaar de data over gaat. Het jaartal aan de tekst toevoegen was ook geen optie, aangezien er altijd twee tekstjes te zien zijn en er dan dus ook altijd twee keer hetzelfde jaartal te zien zou zijn.  
 
-Liggende barchart
+#####Liggende barchart
 In de tweede hoofdvisualisatie is een liggende barchart. Ik heb voor een liggende barchart en niet voor een staande barchart gekozen, omdat ik een top tien visualiseer. In een liggende barchart zie je heel snel de bovenste balk, en in de top tien is dit ook plaats één uit de top tien. 
 
 
