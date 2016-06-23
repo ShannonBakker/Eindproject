@@ -143,7 +143,7 @@ h2{
 }
 
 line{
-	stroke-dasharray: (3, 3);
+	stroke-dasharray: 3, 3;
 	stroke: grey;
 	stroke-width: 1;
 }
@@ -156,7 +156,7 @@ line{
 
 .y_axis_text{
 	text-anchor: end;
-	font-size:11px;
+	font-size:15px;
 }
 
 .line_naar {
