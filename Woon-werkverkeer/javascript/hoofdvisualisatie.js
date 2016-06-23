@@ -71,42 +71,44 @@ function add_mouseover(svg, message, place_name,place_name_with_spaces,aantal_me
 };
 
 // change the border of the selected place	
-function change_border(svg, previous){
+function change_border(svg, previous, current_place){
 	if (previous != null){
 		previous.style("stroke", "grey")
 			.style("stroke-width", "1");
 	};
-	var selected_place = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
+	var selected_place = svg.select('#'+data.plaatsen[current_place].plaats.plaatsnaam.replace(/\s/g,''))
 		.style("stroke", "#fd8d3c")
 		.style("stroke-width", "3");
 };
 
 // color the map
 function colour_map(i, van_of_naar, year){
-	place = i;
+	
 	
 	// select the map and place that have to be coloured
 	alle_plaatsen = [];
 	if (van_of_naar == 1){
+		place = i;
 		svg = d3.select('#svg_van');
 		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
 		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam; 	
-		change_border(svg,previous_van);
+		change_border(svg,previous_van,i);
 		previous_van = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''));
 	}
 	else if (van_of_naar == 2) {
+		place = i;
 		svg = d3.select('#svg_naar');
 		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_naar;
 		title_message = "Naar "+ data.plaatsen[i].plaats.plaatsnaam;
-		change_border(svg,previous_naar);
+		change_border(svg,previous_naar,i);
 		previous_naar = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''));
 	}
 	else if (van_of_naar == 3) {
 		svg = d3.select('#svg_afstand');
 		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
 		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam; 
-		change_border(svg,previous_afstand);
-		previous_afstand = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''));
+		change_border(svg,previous_afstand,i);
+		previous_afstand = svg.select('#'+data.plaatsen[i].plaats.plaatsnaam.replace(/\s/g,''));
 	};
 	
 	// add a title to the map
@@ -216,11 +218,12 @@ d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	data = data_json;
 	year = 2014;
 	tooltip.style("visibility", "hidden");
+	visualisation_distance();
+	
 	place = 15;
 	colour_map(place,1,year);
 	colour_map(place,2,year);
 	make_linegraph(place);
-	visualisation_distance();
 	d3.select("#load_page").remove();	
 	
 });
