@@ -1,6 +1,6 @@
 ### Woon-werkverkeer in Nederland
 #### Doel
-Het doel van de visualisatie is de gebruiker inzicht geven in het woon-werkverkeer in Nederland en de ontwikkeling die dit vanaf 2006 heeft doorgemaakt. De gebruiker kan door de visualisate zelf de data makkelijk doorzoeken en patronen ontdekken. Daarnaast zijn er in de tekst en de tweede visualisatie een aantal interessante aspecten van de dataset uitgelicht. 
+Het doel van de visualisatie is de gebruiker inzicht geven in het woon-werkverkeer in Nederland en de ontwikkeling die dit vanaf 2006 heeft doorgemaakt. De gebruiker kan door de visualisate zelf de data makkelijk doorzoeken en patronen ontdekken. Daarnaast zijn er in de tekst en de tweede visualisatie een aantal interessante aspecten uit de dataset beschreven. 
 
 ####Beschrijving visualisatie
 De pagina bestaat uit twee visualisaties. De belangrijkste visualisatie staat bovenaan de pagina. Deze visualisatie bestaat uit twee kaarten en een lijngrafiek. De kaarten zijn ingekleurd op basis van het aantal mensen dat voor zijn werk van of naar een gekozen plaats reist. Wanneer de pagina wordt geladen is deze plaats standaard Amsterdam. Vervolgens kan men met een dropdown-menu of door te klikken op één van de kaarten een plaats selecteren. Ook kan het jaartal met behulp van een slider worden veranderd. Gekoppeld aan deze kaarten zit ook een lijngrafiek. Deze laat de ontwikkeling over tijd zien van het aantal mensen dat naar een gemeente gaat en het aantal mensen dat uit de gemeente vertrekt. Na de hoofdvisualisatie volgt een stukje tekst met interessante informatie uit de visualisatie. De tweede visualisatie staat hieronder en deze laat de top tien van gemeentes zien, waaruit gemiddeld het verst wordt gereisd. De visualisatie bestaat uit een liggende barchart en een kaart. Op de barchart zie je de gemeentes en de gemiddelde reisafstand, op de kaart zie je waar de mensen uit deze gemeente naartoe reizen.
@@ -8,7 +8,7 @@ De pagina bestaat uit twee visualisaties. De belangrijkste visualisatie staat bo
 De visualisatie ziet er als volgt uit:
 
 ######Laadpagina:
-Waneer je de pagina opent zie je eerst een laadpagina en een feitje over het Woon-werkverkeer in Nederland.
+Waneer je de pagina opent zie je eerst een laadpagina en een feitje over het woon-werkverkeer in Nederland.
 ![](doc/laadpagina.png)
 
 
@@ -28,7 +28,7 @@ Wanneer je over de lijngrafiek gaat met je muis zie je de data van die locatie.
 
 
 ######Tweede visualisatie:
-De tweede visualisatie laat de top tien van gemeentes zien, van waaruit er gemiddeld het verst wordt gereisd. Wanneer je over een gemeente gaat zie je de kaart voor die gemeente.
+De tweede visualisatie laat de top tien van gemeentes zien van waaruit er gemiddeld het verst wordt gereisd. Wanneer je over een gemeente gaat zie je de kaart voor die gemeente.
 ![](doc/tweede_visualisatie.png)
 
 
