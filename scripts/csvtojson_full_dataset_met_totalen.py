@@ -101,7 +101,7 @@ def json_maken():
 
         totaal = {'totalen_van': totalen_van_list,'totalen_naar':totalen_naar_list}
 
-        data_plaats = {"plaats":{"plaatsnaam":total_van[0], "jaar": jaartal_list,"totalen":totaal}}
+        data_plaats = {"plaats":{"plaatsnaam":data_van[0], "jaar": jaartal_list,"totalen":totaal}}
         plaatsen.append(data_plaats)
         i+=1
 
