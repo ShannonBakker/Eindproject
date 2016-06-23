@@ -1,9 +1,13 @@
+// Color the map, make the dropdown, set the time slider, and add mousefunction to the map
+// Shannon Bakker 11201401
+
 var data;
 var year; 
+var place;
 var previous_van;
 var previous_naar;
 var previous_afstand;
-var place;
+
 
 // set the time slider 
 d3.select('#slider').call(d3.slider().axis(true).value(2014).min(2006).max(2014).step(1).on("slide", function(evt, value) {
@@ -63,19 +67,19 @@ function add_mouseover(svg, message, place_name,place_name_with_spaces,aantal_me
 		.on("mouseover", function(d){
 			 tooltip.text(" " + message + place_name_with_spaces+ " reizen "+ aantal_mensen + " mensen ")
 				.style("visibility", "visible");
-		})
-}
+		});
+};
 
 // change the border of the selected place	
 function change_border(svg, previous){
 	if (previous != null){
 		previous.style("stroke", "grey")
-		.style("stroke-width", "1")
-	}
+			.style("stroke-width", "1");
+	};
 	var selected_place = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
 		.style("stroke", "#fd8d3c")
-		.style("stroke-width", "3")
-}
+		.style("stroke-width", "3");
+};
 
 // color the map
 function colour_map(i, van_of_naar, year){
@@ -86,34 +90,34 @@ function colour_map(i, van_of_naar, year){
 	if (van_of_naar == 1){
 		svg = d3.select('#svg_van');
 		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
-		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam 	
-		change_border(svg,previous_van)
-		previous_van = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
+		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam; 	
+		change_border(svg,previous_van);
+		previous_van = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''));
 	}
 	else if (van_of_naar == 2) {
 		svg = d3.select('#svg_naar');
 		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_naar;
-		title_message = "Naar "+ data.plaatsen[i].plaats.plaatsnaam 
-		change_border(svg,previous_naar)
-		previous_naar = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
+		title_message = "Naar "+ data.plaatsen[i].plaats.plaatsnaam;
+		change_border(svg,previous_naar);
+		previous_naar = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''));
 	}
 	else if (van_of_naar == 3) {
 		svg = d3.select('#svg_afstand');
 		all_places = data.plaatsen[i].plaats.jaar[year-2006].plaatsen_van;
-		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam 
-		change_border(svg,previous_afstand)
-		previous_afstand = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''))
+		title_message = "Van "+ data.plaatsen[i].plaats.plaatsnaam; 
+		change_border(svg,previous_afstand);
+		previous_afstand = svg.select('#'+data.plaatsen[place].plaats.plaatsnaam.replace(/\s/g,''));
 	};
 	
 	// add a title to the map
-	svg.select("#place_title").remove()
+	svg.select("#place_title").remove();
 	var text = svg.append("text");
 	var textLabels = text
         .attr("x", 20)
         .attr("y", 20)
 		.attr('id', 'place_title')
         .text(title_message)
-        .attr("font-size", "17px")
+        .attr("font-size", "17px");
 
 	// make a loop trough all places with data about the amount of people travelling to or from a place attached to it
 	// p is places and m is the amount of people, the variable names are this short to decrease the size of the dataset
@@ -121,7 +125,6 @@ function colour_map(i, van_of_naar, year){
 		var place_name_with_spaces = item.p;
 		var place_name = item.p.replace(/\s/g,'')
         var amount_of_people = item.m;
-		
 		
 		// check if the data is missing and change the data of 'aantal_mensen' accordingly
 		if (amount_of_people == "-"){
@@ -161,7 +164,7 @@ function colour_map(i, van_of_naar, year){
 		}
 		else{
 			add_mouseover(svg, 'naar ', place_name,place_name_with_spaces, amount_of_people);
-		}
+		};
 	});
 };
 
@@ -172,13 +175,13 @@ var parseDate = d3.time.format("%Y-%m-%d").parse;
 // load the data 
 d3.json("data_hoofdvisualisatie.json", function(error, data_json) {
 	if (error) {
-		alert("Er is iets misgegaan met het laden van de data")
+		alert("Er is iets misgegaan met het laden van de data");
 		throw new Error;
 	};
 	
 	// make a select element for the municipalities search box http://thematicmapping.org/playground/d3/d3.slider/
-	d3.select("#select").append("select")
-	var select = d3.select("select")
+	d3.select("#select").append("select");
+	var select = d3.select("select");
 	select.attr("class","selectpicker")
 		.attr("id","choose_city")
 		.attr("data-live-search","true");

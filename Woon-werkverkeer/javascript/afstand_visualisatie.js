@@ -1,3 +1,6 @@
+// make a horizontal barchart
+// Shannon Bakker 11201401
+
 function visualisation_distance(){
 	// color the map for Terschelling
 	colour_map(321,3, 2014);
@@ -51,29 +54,26 @@ function visualisation_distance(){
 			.attr("transform","translate(150,0)")
 			.call(yAxis);
 
-		// append the bars 
+		// append the text of the bars 
 		chart.selectAll(".bar")
 			.data(data.data)
 			.enter().append("g")
-				.attr("class", "bar1")
-				.attr("font-size", "10px")
+				.attr("class", "bar_container")
 				.append("text")
-				.attr("class","bartext")
-				.attr("x", function(d) { return x(d.afstand)+150-40; })
-				.attr("y",  function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")")+17; })
-				.attr("dy", ".35em")
-				.text(function(d) { return d.afstand + ' km'; });
+					.attr("class","bartext")
+					.attr("x", function(d) { return x(d.afstand)+150-40; })
+					.attr("y",  function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")")+17; })
+					.attr("dy", ".35em")
+					.text(function(d) { return d.afstand + ' km'; });
 				
-		// append text to the bars
-		d3.selectAll('.bar1')
-		.append("rect")
-					.attr("class", "bar")
-					.attr("y", function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")"); })
-					.attr("height", y.rangeBand())
-					.attr("x", function(d) { return 150; })
-					.attr("width", function(d) { return x(d.afstand); })
-					.on('mouseover', function(d){colour_map(d.gemeentenummer, 3, 2014)});
-		
-			
+		// append the bars
+		d3.selectAll('.bar_container')
+			.append("rect")
+				.attr("class", "bar")
+				.attr("y", function(d) { return y(d.plaatsnaam + " ("+ d.provincie+")"); })
+				.attr("height", y.rangeBand())
+				.attr("x", 150)
+				.attr("width", function(d) { return x(d.afstand); })
+				.on('mouseover', function(d){colour_map(d.gemeentenummer, 3, 2014)});		
 	});
 };

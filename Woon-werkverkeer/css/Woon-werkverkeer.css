@@ -142,6 +142,12 @@ h2{
 	top: 570px;
 }
 
+line{
+	stroke-dasharray: (3, 3);
+	stroke: grey;
+	stroke-width: 1;
+}
+
 .axis path {
   fill: none;
   stroke: #000;
@@ -182,6 +188,10 @@ h2{
 	left: 350px;
 	font-size: 17px;
 	font-weight: bold;
+}
+
+.bar_container{
+	font-size: 10px;
 }
 
 .bar {
