@@ -2,10 +2,10 @@
 - Gewerkt aan idee en proposal in README.md geschreven
 
 # dag 2
-- Stand up over design: suggestie: een kaart waarin je de totalen kunt zien 
-- Gekeken naar de mogelijkheden om ieder jaar een nieuw svg bestand te laden
+- Stand up over design, suggestie: een kaart waarin je de totalen kunt zien 
+- Gekeken naar de mogelijkheden om ieder jaar een nieuw svg bestand met gemeentes te laden, om zo voor iedere gemeentelijke herindeling de correcte kaart te hebben. 
 - Nagedacht over het format waar ik de data in ga zetten 
-- Databestand gezocht voor mensen die inwoner van Nederland zijn en in het buitenland werken
+- Databestand gezocht voor mensen die inwoner van Nederland zijn en in het buitenland werken, niet gevonden
 - Nagedacht over het design van de visualisaties
 
 # dag 3
@@ -14,14 +14,14 @@
 - Schetsen gemaakt voor design document en design document verder uitgewerkt
 
 # dag 4
-- Alle benodigde csv’s gedownload
+- Alle benodigde csv’s gedownload van statline van het CBS
 - Code geschreven om van csv’s een json te maken
-- Opstart html pagina gemaakt
+- Opzet html pagina gemaakt
 
 # dag 5
 - Fout uit json gehaald, het script schreef alleen de eerste plaats 
 - Code geschreven waarmee Amsterdam kon worden ingekleurd
-- Problemen met github omdat ik een te groot bestand heb geupload
+- Problemen met github omdat ik een te groot bestand heb geüpload
 
 # dag 6
 - Problemen met github opgelost
@@ -37,12 +37,12 @@
 - Code gecomment en opgeschoond
 - CBS gemaild over missing data, wat betekent het precies wanneer data mist?
 - Totalen per gemeente opgezocht en toegevoegd aan json
-- Observatie: data mist bij gemeentelijke herindeling, to do-lijst maken met gemeentes waar dit voor geldt
+- Observatie: data mist bij gemeentelijke herindeling
 
 # dag 8
 - Json met totalen verbeterd
 - Gelinkte linegraph met totalen gemaakt
-- Tekst met plaatsnaam toegevoegd aan svg maps
+- Titel met plaatsnaam toegevoegd aan svg maps
 - Gekeken naar bootstrap
 - Begonnen met css
 
@@ -52,7 +52,8 @@
 - Code opgeschoond
 
 # dag 10
-- Slider vervangen
+- Bootstrap toegevoegd
+- Slider vervangen, oude slider was lelijk en werkte niet goed met bootstrap
 - Zoekfunctie aan dropdown toegevoegd
 
 # dag 11
@@ -60,9 +61,9 @@
 - Nul-data grijs gemaakt
 - Tooltip kaart verbeterd, van en naar werkt en plaatsnamen hebben spaties
 - Van jaar een globale variabele gemaakt
-- Missende niet gekleurde gemeente gefixt
-- Missing data bij grafiek zorgt niet meer voor errors
-- Added crosshair 
+- Missende niet gekleurde gemeente opgelost
+- Missende data bij grafiek zorgt niet meer voor errors
+- Verticale lijn aan lijngrafiek toegevoegd
 
 # dag 12
 - Extra visualisatie toegevoegd, moeite met liggende bar chart
@@ -73,7 +74,7 @@
 - Laadpagina toegevoegd
 - Tooltip kaart verbeterd zodat hij niet meer NaN toont
 - Ervoor gezorgd dat de kaart van de afstandvisualisatie gekleurd wordt tijdens het laden van de pagina
-- Shertogenbosch en sgravenhage vervangen door Den Bosch en Den Haag
+- s'Hertogenbosch en s'Gravenhage vervangen door Den Bosch en Den Haag
 - Feitjes gezocht voor de laadpagina
 - Geprobeerd de zoekbalk aan te passen als er op een plaats wordt geklikt, niet gelukt
 - Introtekst geschreven
@@ -94,7 +95,7 @@
 # dag 16
 - Process book op github geplaatst
 - Titel aan visualisatie 2 toegevoegd
-- Uitleg bij hoofdvisualisatie gevoegd
+- Uitleg bij hoofdvisualisatie toegevoegd
 - Begonnen met verslag
 
 # dag 17
@@ -109,3 +110,8 @@
 - Readme bijgewerkt
 - Verslag visueel design gedaan
 - Lisence file toegevoegd
+
+# dag 19 
+- Bug uit tweede visualisatie gehaald, de tekst in de bars wordt nu als onderdeel van de bar gezien
+- Process boek verbeterd
+- Teksten nagekeken
